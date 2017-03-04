@@ -47,6 +47,18 @@ Note: Create Procfile, server and .json files. See heroku doc site [here](https:
 $ git push -u heroku master
 ```
 
+### decode git flow
+```
+$ git checkout feature-branchname
+$ git add .
+$ git commit -m "any message here"
+$ git push -u origin feature-branchname
+$ git checkout master
+$ git merge feature-branchname
+$ git push -u origin master
+$ git push -u heroku master
+```
+
 #### References
 * [Github Git Cheat Sheet](https://github.com/github/training-kit/blob/master/downloads/github-git-cheat-sheet.md)
 * [Git Cheat Sheet Education](https://education.github.com/git-cheat-sheet-education.pdf)
