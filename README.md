@@ -1,6 +1,7 @@
 # Test Project
 
 ## Git Guides
+The following commands might not be the best practice but these commands works perfectly with the following setup
 
 ### sync remote
 ```
@@ -16,6 +17,11 @@ $ git pull
 (resolve any merge conflicts if there are any)
 $ git checkout master
 $ git merge development (there won't be any conflicts now)
+```
+
+### copy current branch and switch to newly created branch
+```
+$ git checkout -b feature-branchname
 ```
 
 #### References
