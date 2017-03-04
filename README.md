@@ -59,6 +59,14 @@ $ git push -u origin master
 $ git push -u heroku master
 ```
 
+### replace master branch entirely from another branch
+```
+$ git checkout feature-branchname
+$ git merge -s ours master
+$ git checkout master
+$ git merge feature-branchname
+```
+
 #### References
 * [Github Git Cheat Sheet](https://github.com/github/training-kit/blob/master/downloads/github-git-cheat-sheet.md)
 * [Git Cheat Sheet Education](https://education.github.com/git-cheat-sheet-education.pdf)
