@@ -1,5 +1,5 @@
 <?php
 	echo "Index";
-	echo "<br/>"
+	echo "<br/>";
 	require __DIR__.'/../app/app.php';
 ?>
