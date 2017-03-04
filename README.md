@@ -20,4 +20,5 @@ $ git merge development (there won't be any conflicts now)
 
 #### References
 * [Github Git Cheat Sheet](https://github.com/github/training-kit/blob/master/downloads/github-git-cheat-sheet.md)
+* [Git Cheat Sheet Education](https://education.github.com/git-cheat-sheet-education.pdf)
 
