@@ -1,7 +1,7 @@
 # Test Project
 
 ## Git Guides
-The following commands might not be the best practice but these commands works perfectly with the following setup
+The following commands might not be the best practice but these commands work perfectly with the following setup
 
 ### sync remote
 ```
