@@ -12,7 +12,7 @@
 <body class="hold-transition skin-green layout-top-nav">
 	<div class="wrapper">
 		<!-- Nav -->
-		<?php include_once 'layout/nav.php'; echo '<script>showNav(["dashboard"]);</script>';?>		
+		<?php include_once 'layout/nav.php'; echo '<script>showNav(["dashboard","logout"]);</script>';?>		
 		<!-- Routes -->
 		<?php include_once 'layout/routes.php'; ?>
 		<!-- Modals -->

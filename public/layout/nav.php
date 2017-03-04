@@ -1,6 +1,6 @@
 <header class="main-header">
 	<nav class="navbar navbar-static-top">
-		<div class="container">
+		<div class="" style="margin-left: 8px;margin-right: 8px;">
 			<div class="navbar-header">
 				<a href="?page=login" class="navbar-brand"><b>i</b>MOCK</a>
 				<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse">
