@@ -3,6 +3,11 @@
 ## Git Guides
 The following commands might not be the best practice but these commands work perfectly with the following setup
 
+### clone repository
+```
+$ git clone https://github.com/githubusername/reponame.git localreponame
+```
+
 ### sync remote
 ```
 Clean master
@@ -22,6 +27,24 @@ $ git merge development (there won't be any conflicts now)
 ### copy current branch and switch to newly created branch
 ```
 $ git checkout -b feature-branchname
+```
+
+### commit changes and push to remote repository
+```
+$ git add .
+$ git commit -m "any message"
+$ git push -u origin master
+	or $ git push -u origin feature-branchname
+	or $ git push -u heroku master
+```
+
+### heroku devcycle
+```
+$ heroku --version (note: this will update heroku's CLI)
+$ heroku login
+$ heroku create appname
+Note: Create Procfile, server and .json files. See heroku doc site [here](https://devcenter.heroku.com/start).
+$ git push -u heroku master
 ```
 
 #### References
