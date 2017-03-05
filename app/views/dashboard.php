@@ -45,169 +45,247 @@
       <div class="tab-pane" id="takeexam">
         <div class="row">
           <div class="col-md-4">
-            <div class="box">
-              <div class="box-header">
-                <h3 class="box-title">Choose Subject</h3>
-                  <div class="box-tools">
-                    <div class="input-group input-group-sm" style="width: 150px;">
-                      <input type="text" name="table_search" class="form-control pull-right" placeholder="Search">
-
-                      <div class="input-group-btn">
-                        <button type="submit" class="btn btn-default"><i class="fa fa-search"></i></button>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                <div class="box-body table-responsive no-padding">
-                  <table class="table table-hover">
-                    <tr>
-                      <th>ID</th>
-                      <th>User</th>
-                      <th>Date</th>
-                      <th>Status</th>
-                      <th>Reason</th>
-                    </tr>
-                    <tr>
-                      <td>183</td>
-                      <td>John Doe</td>
-                      <td>11-7-2014</td>
-                      <td><span class="label label-success">Approved</span></td>
-                      <td>Bacon ipsum dolor sit amet salami venison chicken flank fatback doner.</td>
-                    </tr>
-                    <tr>
-                      <td>219</td>
-                      <td>Alexander Pierce</td>
-                      <td>11-7-2014</td>
-                      <td><span class="label label-warning">Pending</span></td>
-                      <td>Bacon ipsum dolor sit amet salami venison chicken flank fatback doner.</td>
-                    </tr>
-                    <tr>
-                      <td>657</td>
-                      <td>Bob Doe</td>
-                      <td>11-7-2014</td>
-                      <td><span class="label label-primary">Approved</span></td>
-                      <td>Bacon ipsum dolor sit amet salami venison chicken flank fatback doner.</td>
-                    </tr>
-                    <tr>
-                      <td>175</td>
-                      <td>Mike Doe</td>
-                      <td>11-7-2014</td>
-                      <td><span class="label label-danger">Denied</span></td>
-                      <td>Bacon ipsum dolor sit amet salami venison chicken flank fatback doner.</td>
-                    </tr>
-                  </table>
-                </div>
-              </div>
-          </div>
-          <div class="col-md-4">
-            <div class="box">
-              <div class="box-header">
-                <h3 class="box-title">Choose Topic</h3>
-                  <div class="box-tools">
-                    <div class="input-group input-group-sm" style="width: 150px;">
-                      <input type="text" name="table_search" class="form-control pull-right" placeholder="Search">
-
-                      <div class="input-group-btn">
-                        <button type="submit" class="btn btn-default"><i class="fa fa-search"></i></button>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                <div class="box-body table-responsive no-padding">
-                  <table class="table table-hover">
-                    <tr>
-                      <th>ID</th>
-                      <th>User</th>
-                      <th>Date</th>
-                      <th>Status</th>
-                      <th>Reason</th>
-                    </tr>
-                    <tr>
-                      <td>183</td>
-                      <td>John Doe</td>
-                      <td>11-7-2014</td>
-                      <td><span class="label label-success">Approved</span></td>
-                      <td>Bacon ipsum dolor sit amet salami venison chicken flank fatback doner.</td>
-                    </tr>
-                    <tr>
-                      <td>219</td>
-                      <td>Alexander Pierce</td>
-                      <td>11-7-2014</td>
-                      <td><span class="label label-warning">Pending</span></td>
-                      <td>Bacon ipsum dolor sit amet salami venison chicken flank fatback doner.</td>
-                    </tr>
-                    <tr>
-                      <td>657</td>
-                      <td>Bob Doe</td>
-                      <td>11-7-2014</td>
-                      <td><span class="label label-primary">Approved</span></td>
-                      <td>Bacon ipsum dolor sit amet salami venison chicken flank fatback doner.</td>
-                    </tr>
-                    <tr>
-                      <td>175</td>
-                      <td>Mike Doe</td>
-                      <td>11-7-2014</td>
-                      <td><span class="label label-danger">Denied</span></td>
-                      <td>Bacon ipsum dolor sit amet salami venison chicken flank fatback doner.</td>
-                    </tr>
-                  </table>
-                </div>
-              </div>
-          </div>
-          <div class="col-md-4">
-            <div class="box">
-              <div class="box-header">
+            <div class="box box-default">
+              <div class="box-header with-border">
                 <h3 class="box-title">Exam Information</h3>
-                  <div class="box-tools">
-                    <div class="input-group input-group-sm" style="width: 150px;">
-                      <input type="text" name="table_search" class="form-control pull-right" placeholder="Search">
-
-                      <div class="input-group-btn">
-                        <button type="submit" class="btn btn-default"><i class="fa fa-search"></i></button>
-                      </div>
+                  <div class="box-tools pull-right">
+                    <!-- <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i></button> -->
+                  </div>
+              </div>
+              <div class="box-body">
+                <div class="row">
+                  <div class="col-md-12">
+                    <div class="form-group">
+                      <label>Choose Subject</label>
+                      <select class="form-control select2" style="width: 100%;">
+                        <option selected="selected">Alabama</option>
+                        <option>Alaska</option>
+                        <option disabled="disabled">California (disabled)</option>
+                        <option>Delaware</option>
+                        <option>Tennessee</option>
+                        <option>Texas</option>
+                        <option>Washington</option>
+                      </select>
+                    </div>
+                    <div class="form-group">
+                      <label>Choose Topic</label>
+                      <select class="form-control select2" style="width: 100%;">
+                        <option selected="selected">Alabama</option>
+                        <option>Alaska</option>
+                        <option disabled="disabled">California (disabled)</option>
+                        <option>Delaware</option>
+                        <option>Tennessee</option>
+                        <option>Texas</option>
+                        <option>Washington</option>
+                      </select>
                     </div>
                   </div>
                 </div>
+                <div class="text-red">Note: </span><span class="text-gray">Please avoid refreshing this page once you started the exam.</div>
+              </div>
+              <div class="box-footer">
+                <div class="btn-group pull-right">
+                  <button type="submit" class="btn bg-maroon btn-flat margin">Start Examination</button>                
+                  <button type="submit" class="btn bg-purple btn-flat margin">Choose Again</button>
+                </div>
+              </div>
+            </div>      
+          </div>
+          <div class="col-md-8">
+            <div class="box">
+              <div class="box-header">
+                <h3 class="box-title">Topic here</h3>
+                <h5 class="box-title pull-right">
+                  Items you answered: 0
+                </h5>
+                </div>
                 <div class="box-body table-responsive no-padding">
-                  <table class="table table-hover">
+                  <div class="text-center" style="margin-bottom: 30px;">
+                    <h1>00:00:00</h1>
+                    <h6>Time Remaining</h6>                    
+                  </div>
+                  <ul class="pagination pagination-sm no-margin">
+                    <li><a class="disabled" href="#">001</a></li>
+                    <li><a href="#">002</a></li>
+                    <li><a href="#">003</a></li>
+                    <li><a href="#">004</a></li>
+                    <li><a href="#">005</a></li>
+                    <li><a href="#">006</a></li>
+                    <li><a href="#">007</a></li>
+                    <li><a href="#">008</a></li>
+                    <li><a href="#">009</a></li>
+                    <li><a href="#">010</a></li>
+                    <li><a href="#">001</a></li>
+                    <li><a href="#">002</a></li>
+                    <li><a href="#">003</a></li>
+                    <li><a href="#">004</a></li>
+                    <li><a href="#">005</a></li>
+                    <li><a href="#">006</a></li>
+                    <li><a href="#">007</a></li>
+                    <li><a href="#">008</a></li>
+                    <li><a href="#">009</a></li>
+                    <li><a href="#">010</a></li>
+                    <li><a href="#">001</a></li>
+                    <li><a href="#">002</a></li>
+                    <li><a href="#">003</a></li>
+                    <li><a href="#">004</a></li>
+                    <li><a href="#">005</a></li>
+                    <li><a href="#">006</a></li>
+                    <li><a href="#">007</a></li>
+                    <li><a href="#">008</a></li>
+                    <li><a href="#">009</a></li>
+                    <li><a href="#">010</a></li>
+                    <li><a href="#">001</a></li>
+                    <li><a href="#">002</a></li>
+                    <li><a href="#">003</a></li>
+                    <li><a href="#">004</a></li>
+                    <li><a href="#">005</a></li>
+                    <li><a href="#">006</a></li>
+                    <li><a href="#">007</a></li>
+                    <li><a href="#">008</a></li>
+                    <li><a href="#">009</a></li>
+                    <li><a href="#">010</a></li>
+                  </ul>
+                  <table class="table">
                     <tr>
-                      <th>ID</th>
-                      <th>User</th>
-                      <th>Date</th>
-                      <th>Status</th>
-                      <th>Reason</th>
+                      <th style="width:150px">Choose Answer</th>
+                      <th style="padding-left:30px">Question: 001</th>
                     </tr>
                     <tr>
-                      <td>183</td>
-                      <td>John Doe</td>
-                      <td>11-7-2014</td>
-                      <td><span class="label label-success">Approved</span></td>
-                      <td>Bacon ipsum dolor sit amet salami venison chicken flank fatback doner.</td>
-                    </tr>
-                    <tr>
-                      <td>219</td>
-                      <td>Alexander Pierce</td>
-                      <td>11-7-2014</td>
-                      <td><span class="label label-warning">Pending</span></td>
-                      <td>Bacon ipsum dolor sit amet salami venison chicken flank fatback doner.</td>
-                    </tr>
-                    <tr>
-                      <td>657</td>
-                      <td>Bob Doe</td>
-                      <td>11-7-2014</td>
-                      <td><span class="label label-primary">Approved</span></td>
-                      <td>Bacon ipsum dolor sit amet salami venison chicken flank fatback doner.</td>
-                    </tr>
-                    <tr>
-                      <td>175</td>
-                      <td>Mike Doe</td>
-                      <td>11-7-2014</td>
-                      <td><span class="label label-danger">Denied</span></td>
-                      <td>Bacon ipsum dolor sit amet salami venison chicken flank fatback doner.</td>
+                      <td>
+                        <div class="form-group">
+                          <div class="row">
+                            <div class="col-sm-3">
+                              <label class="">
+                                <div style="position: absolute;margin-left: 7px;margin-top:1px;">A</div>
+                                <div class="iradio_flat-green" aria-checked="false" aria-disabled="false" style="position: relative;">
+                                  <input type="radio" name="r3" class="flat-red" style="position: absolute; opacity: 0;">
+                                  <ins class="iCheck-helper" style="position: absolute; top: 0%; left: 0%; display: block; width: 100%; height: 100%; margin: 0px; padding: 0px; background: rgb(255, 255, 255); border: 0px; opacity: 0;"></ins>
+                                </div>
+                              </label>                              
+                            </div>
+                            <div class="col-sm-3">
+                              <label class="">
+                                <div style="position: absolute;margin-left: 7px;margin-top:1px;">B</div>
+                                <div class="iradio_flat-green" aria-checked="false" aria-disabled="false" style="position: relative;">
+                                  <input type="radio" name="r3" class="flat-red" style="position: absolute; opacity: 0;">
+                                  <ins class="iCheck-helper" style="position: absolute; top: 0%; left: 0%; display: block; width: 100%; height: 100%; margin: 0px; padding: 0px; background: rgb(255, 255, 255); border: 0px; opacity: 0;"></ins>
+                                </div>
+                              </label>   
+                            </div>
+                            <div class="col-sm-3">
+                              <label class="">
+                                <div style="position: absolute;margin-left: 7px;margin-top:1px;">C</div>
+                                <div class="iradio_flat-green" aria-checked="false" aria-disabled="false" style="position: relative;">
+                                  <input type="radio" name="r3" class="flat-red" style="position: absolute; opacity: 0;">
+                                  <ins class="iCheck-helper" style="position: absolute; top: 0%; left: 0%; display: block; width: 100%; height: 100%; margin: 0px; padding: 0px; background: rgb(255, 255, 255); border: 0px; opacity: 0;"></ins>
+                                </div>
+                              </label>   
+                            </div>
+                            <div class="col-sm-3">
+                              <label class="">
+                                <div style="position: absolute;margin-left: 7px;margin-top:1px;">D</div>
+                                <div class="iradio_flat-green" aria-checked="false" aria-disabled="false" style="position: relative;">
+                                  <input type="radio" name="r3" class="flat-red" style="position: absolute; opacity: 0;">
+                                  <ins class="iCheck-helper" style="position: absolute; top: 0%; left: 0%; display: block; width: 100%; height: 100%; margin: 0px; padding: 0px; background: rgb(255, 255, 255); border: 0px; opacity: 0;"></ins>
+                                </div>
+                              </label>   
+                            </div>
+                          </div>
+                        </div>
+                      </td>
+                      <td style="padding-left:30px">
+                        <div>
+                          The mailbox rule generally makes acceptance of an offer effective at the time the acceptance is dispatched. The mailbox rule does not apply if
+                        </div>
+                        <div>&nbsp;</div>
+                        <table>
+                          <tr>
+                            <td valign="top">A.</td>
+                            <td style="padding-left:5px">Both the offeror and offeree are merchants.asdfasdfasdfasdf adsfa dfa sdfa sdf asdf asdf asdf asdf asdf asdf adsf asdf asdf adsf asdf asdf asdf asdf asdf asdf asdfasd f</td>
+                          </tr>
+                          <tr>
+                            <td valign="top">B.</td>
+                            <td style="padding-left:5px">The offer proposes a sale of real estate.</td>
+                          </tr>
+                          <tr>
+                            <td valign="top">C.</td>
+                            <td style="padding-left:5px">The offer provides that an acceptance shall not be effective until actually received.</td>
+                          </tr>
+                          <tr>
+                            <td valign="top">D.</td>
+                            <td style="padding-left:5px">The duration of the offer is not in excess of 3 months.</td>
+                          </tr>
+                        </table>
+                      </td>
                     </tr>
                   </table>
                 </div>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-sm-12">
+            <div class="box box-danger">
+              <div class="box-header with-border">
+                <h3 class="box-title">General Instructions</h3>
+                  <div class="box-tools pull-right">
+                    <!-- <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i></button> -->
+                  </div>
               </div>
+              <div class="box-body">
+                <div class="row">
+                  <div class="col-lg-3 col-xs-6">         
+                    <div class="small-box bg-aqua">
+                      <div class="inner">
+                        <h3>100</h3>
+                        <p>Total items</p>
+                      </div>
+                      <div class="icon">
+                        <i class="ion ion-help"></i>
+                      </div>
+                      <a href="#" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
+                    </div>
+                  </div>
+                  <div class="col-lg-3 col-xs-6">
+                    <div class="small-box bg-green">
+                      <div class="inner">
+                        <h3>75<sup style="font-size: 20px">%</sup></h3>
+                        <p>Passing Rate</p>
+                      </div>
+                      <div class="icon">
+                        <i class="ion ion-ribbon-b"></i>
+                      </div>
+                      <a href="#" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
+                    </div>
+                  </div>
+                  <div class="col-lg-3 col-xs-6">
+                    <div class="small-box bg-yellow">
+                      <div class="inner">
+                        <h3>60</h3>
+                        <p>Time duration in minutes</p>
+                      </div>
+                      <div class="icon">
+                        <i class="ion ion-clock"></i>
+                      </div>
+                      <a href="#" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
+                    </div>
+                  </div>
+                  <div class="col-lg-3 col-xs-6">
+                    <div class="small-box bg-red">
+                      <div class="inner">
+                        <h3>1</h3>
+                        <p>Number of attempts</p>
+                      </div>
+                      <div class="icon">
+                        <i class="ion ion-compose"></i>
+                      </div>
+                      <a href="#" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>   
           </div>
         </div>
       </div>
@@ -270,7 +348,14 @@
   </div>
 </div>
 <script>
+
   $(function(){
+    $('input[type=radio]').iCheck({
+      checkboxClass: 'icheckbox_square-green',
+      radioClass: 'iradio_square-green',
+      increaseArea: '20%' // optional
+    });
+
     function render_News(){
       let html = ``;
       for(let i=0;i<5;i++){

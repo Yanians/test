@@ -11,6 +11,7 @@
 	<link rel="stylesheet" href="plugins/iCheck/square/green.css">
 	<link rel="stylesheet" href="plugins/datatables/dataTables.bootstrap.css">
 	<link rel="stylesheet" type="text/css" href="plugins/sweetalert/sweetalert.css">
+	<link rel="stylesheet" type="text/css" href="plugins/select2/select2.min.css">
 
 	<link rel="stylesheet" href="dist/css/AdminLTE.min.css">
 	<link rel="stylesheet" href="dist/css/skins/skin-green.min.css">  
