@@ -8,6 +8,9 @@
     <ul class="nav nav-tabs">              
       <li class="active"><a href="#home" data-toggle="tab">Home</a></li>
       <li><a href="#takeexam" data-toggle="tab">Take Exam</a></li>
+      
+      <li class="pull-right"><a href="#">Welcome Student (student@gmail.com)!</a></li>
+
       <!-- <li><a href="#settings" data-toggle="tab">Settings</a></li>               -->
     </ul>
     <div class="tab-content">
@@ -404,9 +407,9 @@
         }
       }).done(function(data){
         // console.log(data);
-        console.log(JSON.parse(data));
-        // STUDENT_SUBJECTS_AND_TOPICS = JSON.parse(data);
-        // loadChooseSubject();
+        // console.log(JSON.parse(data));
+        STUDENT_SUBJECTS_AND_TOPICS = JSON.parse(data);
+        loadChooseSubject();
 
         function loadChooseSubject(){
           /*

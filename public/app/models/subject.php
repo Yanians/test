@@ -49,18 +49,31 @@
 				$sql = "select * from $table";
 				$result = mysqli_query($link, $sql) or die("Invalid query" . mysqli_error($link));
 				$arr = array();
+				$i=0;
 				while($row=mysqli_fetch_assoc($result)){
 					$sql2 = "select * from $table2 where subject_id='".$row['id']."'";
 					$result2 = mysqli_query($link, $sql2) or die("Invalid query" . mysqli_error($link));
 					$topic = array();
 					while($row2=mysqli_fetch_assoc($result2)){
-						$topic[] = $row2;
+						// $data = array("id" => $row[, "name" => "test");
+						// $topic[] = $row2['name'];
+						// $test = array("id" => 1, "name" => "test");
+						$topic[] = array("id" => $row2['id'], "name" => htmlspecialchars($row2['name']));
 					}
-					// array_push($topic, "criminology", "legal");
-					array_push($row, $topic);
-					$arr[] = $row;					
+					// print_r($topic);
+					// array_push($row, $topic);
+					// // array_push($topic, "criminology", "legal");
+					// if(count($topic)>0)
+					// $test = array();
+					
+					array_push($row, $topic);					
+					$arr[] = $row;
+					// print_r($arr);
+					// echo "-------------";
+					// if($i++==1)break;
 				}
 				echo json_encode($arr);
+				// echo $arr;
 				// print_r($arr);
 			}
 		}
