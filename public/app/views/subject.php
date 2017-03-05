@@ -178,4 +178,4 @@
 <!-- modals end-->
 
 
-<script src="../app/controllers/subject.js"></script>
+<script src="app/controllers/subject.js"></script>

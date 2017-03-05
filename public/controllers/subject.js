@@ -1,22 +1,22 @@
 function doRenderTable(id){
 	$.ajax({
         method: "POST",
-        url: "../app/models/user.php"
+        url: "app/models/user.php"
     }).done(function(userdata){
     	_USERTABLE_DATA = JSON.parse(userdata);
 	    $.ajax({
 	        method: "POST",
-	        url: "../app/models/exam.php"
+	        url: "app/models/exam.php"
 	    }).done(function(examdata){
 	    	_EXAMTABLE_DATA = JSON.parse(examdata);
 	    	$.ajax({
 		        method: "POST",
-		        url: "../app/models/subject.php"
+		        url: "app/models/subject.php"
 	    	}).done(function(subjectdata){
 	    		_SUBJECTTABLE_DATA = JSON.parse(subjectdata);
 	    		$.ajax({
 			        method: "POST",
-			        url: "../app/models/question.php"
+			        url: "app/models/question.php"
 		    	}).done(function(questiondata){
 		    		_QUESTIONTABLE_DATA = JSON.parse(questiondata);
 			    	//renderTable([id],[data],[table columns],[actions])
