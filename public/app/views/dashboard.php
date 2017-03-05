@@ -64,34 +64,35 @@
                         <option selected="selected">Loading Subjects...</option>
                       </select>
                     </div>
-                    <div class="form-group">
-                      <label>Choose Topic</label>
-                      <select class="form-control select2 chooseTopic" style="width: 100%;">Loading Topics...</select>
-                    </div>
                   </div>
                 </div>
                 <div class="text-red">Note: </span><span class="text-gray">Please avoid refreshing this page once you started the exam.</div>
               </div>
               <div class="box-footer">
                 <div class="btn-group pull-right">
-                  <button type="submit" class="btn bg-maroon btn-flat margin">Start Examination</button>                
-                  <button type="submit" class="btn bg-purple btn-flat margin">Choose Again</button>
+                  <button type="submit" class="btn bg-maroon btn-flat margin startexam">Start Examination</button>               
+                  <!-- <button type="submit" class="btn bg-purple btn-flat margin chooseagain">Choose Again</button> -->
                 </div>
               </div>
             </div>      
           </div>
           <div class="col-md-8">
-            <div class="box">
-              <div class="box-header">
-                <h3 class="box-title">Topic here</h3>
+            <div class="box exam-sheet">
+              <div class="box-header with-border">
+                <h3 class="box-title subject-chosen">Subject Chosen</h3>
                 <h5 class="box-title pull-right">
                   Items you answered: 0
                 </h5>
                 </div>
-                <div class="box-body table-responsive no-padding">
-                  <div class="text-center" style="margin-bottom: 30px;">
-                    <h1>00:00:00</h1>
-                    <h6>Time Remaining</h6>                    
+                <div class="box-body">
+                  <!-- <button type="submit" class="btn bg-green btn-flat startexam">Press this button once you are ready!</button>  -->
+                  <div class="form-group">
+                    <label>Choose Topic</label>
+                    <select class="form-control select2 chooseTopic" style="width: 100%;">Loading Topics...</select>
+                  </div>
+                  <div class="text-center" style="margin-bottom: 30px;">                    
+                      <h1 class="exam-timer">00:00:00</h1>
+                      <h6>Time Remaining</h6>                    
                   </div>
                   <ul class="pagination pagination-sm no-margin">
                     <li><a class="disabled" href="#">001</a></li>
@@ -227,7 +228,7 @@
                   <div class="col-lg-3 col-xs-6">         
                     <div class="small-box bg-aqua">
                       <div class="inner">
-                        <h3>100</h3>
+                        <h3 class="subject-totalitems">100</h3>
                         <p>Total items</p>
                       </div>
                       <div class="icon">
@@ -239,7 +240,7 @@
                   <div class="col-lg-3 col-xs-6">
                     <div class="small-box bg-green">
                       <div class="inner">
-                        <h3>75<sup style="font-size: 20px">%</sup></h3>
+                        <h3 class="subject-passingrate">75<sup style="font-size: 20px">%</sup></h3>
                         <p>Passing Rate</p>
                       </div>
                       <div class="icon">
@@ -251,7 +252,7 @@
                   <div class="col-lg-3 col-xs-6">
                     <div class="small-box bg-yellow">
                       <div class="inner">
-                        <h3>60</h3>
+                        <h3 class="subject-timeduration">60</h3>
                         <p>Time duration in minutes</p>
                       </div>
                       <div class="icon">
@@ -263,7 +264,7 @@
                   <div class="col-lg-3 col-xs-6">
                     <div class="small-box bg-red">
                       <div class="inner">
-                        <h3>1</h3>
+                        <h3 class="subject-attempts">1</h3>
                         <p>Number of attempts</p>
                       </div>
                       <div class="icon">
@@ -397,8 +398,7 @@
     render_StudentExams();
 
     //Take Exam Controllers
-    function render_StudentSubjects(){
-      let STUDENT_SUBJECTS;
+    function render_StudentSubjects(){      
       $.ajax({
         url:"app/models/subject.php",
         method: "post",
@@ -423,10 +423,11 @@
             html += `<option>${obj.name}</option>`;          
           });
           $('.chooseSubject').html(html);  
-          if(STUDENT_SUBJECTS_AND_TOPICS.length>0)        
-            loadChooseTopic(STUDENT_SUBJECTS_AND_TOPICS[0].name);          
+          if(STUDENT_SUBJECTS_AND_TOPICS.length>0){        
+            loadChooseTopic(STUDENT_SUBJECTS_AND_TOPICS[0].name);            
+          }
         }
-        function loadChooseTopic(subject){
+        function loadChooseTopic(subject){          
           let html = ``;
           let index=0;
           for(let obj of STUDENT_SUBJECTS_AND_TOPICS){
@@ -438,17 +439,94 @@
               break;
             }
             index++;
-          }
+          }          
           $('.chooseSubject').val(STUDENT_SUBJECTS_AND_TOPICS[index].name);
-          $('.chooseTopic').html(html); 
+          $('.chooseTopic').html(html);
+          $('.subject-totalitems').html(STUDENT_SUBJECTS_AND_TOPICS[index].items);
+          $('.subject-passingrate').html(STUDENT_SUBJECTS_AND_TOPICS[index].passingrate);
+          $('.subject-timeduration').html(STUDENT_SUBJECTS_AND_TOPICS[index].timeduration);
+          $('.subject-attempts').html(STUDENT_SUBJECTS_AND_TOPICS[index].attempts);
+          $('.subject-chosen').html(shortText($('.chooseSubject').val()));
+
+          STUDENT_SUBJECT_INDEX = index;
+          STUDENT_SUBJECT_ID_CHOSEN = STUDENT_SUBJECTS_AND_TOPICS[index].id;
+          STUDENT_TOPIC_ID_CHOSEN = getTopicID($('.chooseTopic').val(),index);
         }
 
+        function shortText(text){if(text.length<10)return text; var shortText = jQuery.trim(text).substring(0, 50).split(" ").slice(0, -1).join(" ") + "..."; return shortText; }
+        function getTopicID(topic,index){let id = -1; STUDENT_SUBJECTS_AND_TOPICS[index][0].map((obj)=>{if(obj.name === topic){id = obj.id; } }); return id; }
+        
         $('.chooseSubject').change(function(){
-          loadChooseTopic($('.chooseSubject').val());
+          loadChooseTopic($('.chooseSubject').val());          
           // console.log($('.chooseSubject').val());
+        });
+        $('.chooseTopic').change(function(){
+          // loadChooseTopic($('.chooseSubject').val());
+          STUDENT_TOPIC_ID_CHOSEN = getTopicID($('.chooseTopic').val(),STUDENT_SUBJECT_INDEX);
+          // console.log(STUDENT_TOPIC_ID_CHOSEN);
+          // console.log($('.chooseTopic').val());
+        });
+        $('.startexam').click(function(){
+          // console.log("Start Exam");
+          let examLog = {
+            "user_id":1,
+            "subject_id":STUDENT_SUBJECT_ID_CHOSEN,
+            "topic_id":STUDENT_TOPIC_ID_CHOSEN,
+            "question_id":1,
+            "answer":"X",
+            "timeremaining":`00:${$('.subject-timeduration').html()}:00`
+          };
+          // console.log(examLog);
+          $.ajax({
+            url:"app/models/exam.php",
+            method: "post",
+            data: {
+              action:"setlog",
+              examlog: examLog
+            }
+          }).done(function(res){
+            data = JSON.parse(res);
+            // console.log(data.result);
+            if(data.result=="ok"){
+              $('.chooseSubject').attr('disabled','disabled');
+              $('.subject-chosen').html(shortText($('.chooseSubject').val()));
+              $('.startexam').attr('disabled','disabled');
+              $('.chooseagain').attr('disabled','disabled');
+              $('.exam-sheet').show();
+              // $('.chooseSubject').removeAttr('disabled');
+
+                $(".exam-timer")
+                .countdown("2018/01/01", function(event) {
+                  $(this).text(
+                    event.strftime('%H:%M:%S')
+                  );
+                });
+            }
+            else{
+              console.log("Contact your admin! Course previously taken.");
+            }
+            // console.log(res);
+            // if(res=="not ok"){
+            //   console.log("Need to consult your admin! Exam previously taken!");
+            // }
+            // else{
+            //   $('.chooseSubject').attr('disabled','disabled');
+            //   $('.subject-chosen').html(shortText($('.chooseSubject').val()));
+            //   $('.startexam').attr('disabled','disabled');
+            //   $('.chooseagain').attr('disabled','disabled');
+            //   $('.exam-sheet').show();
+            //   // $('.chooseSubject').removeAttr('disabled');
+            // }
+          });
         });
       });
     }
     render_StudentSubjects();
+
+    $('.exam-sheet').hide();
+    let STUDENT_SUBJECTS_AND_TOPICS;
+    let STUDENT_SUBJECT_INDEX;
+    let STUDENT_SUBJECT_ID_CHOSEN;
+    let STUDENT_TOPIC_ID_CHOSEN;
   });
 </script>
