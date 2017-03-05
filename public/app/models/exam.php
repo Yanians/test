@@ -15,6 +15,25 @@ if($link){
 			}
 			echo json_encode($arr);
 		}
+		else if($_POST['action']=="setlog"){
+			// print_r($_POST['examlog']['user_id']);
+			$table='exam';
+			$sql = "select * from $table WHERE user_id='".$_POST['examlog']['user_id']."' AND subject_id='".$_POST['examlog']['subject_id']."' AND topic_id='".$_POST['examlog']['topic_id']."' AND question_id='".$_POST['examlog']['question_id']."' AND answer='".$_POST['examlog']['answer']."'";
+			$result = mysqli_query($link, $sql) or die("Invalid query" . mysqli_error($link));
+			$count=0;
+			while($row=mysqli_fetch_assoc($result)){
+				$arr[] = $row;
+				$count++;
+			}
+			if($count>0){
+				echo json_encode(["result" => "not ok"]);
+			}
+			else{
+				$sql = "insert into $table values('','".$_POST['examlog']['user_id']."','".$_POST['examlog']['subject_id']."','".$_POST['examlog']['topic_id']."','".$_POST['examlog']['question_id']."','".$_POST['examlog']['answer']."','".$_POST['examlog']['timeremaining']."')";
+				// $result = mysqli_query($link, $sql) or die("Invalid query" . mysqli_error($link));
+				echo json_encode(["result" => "ok"]);
+			}
+		}
 	}
 	else{
 		$table='exam';
