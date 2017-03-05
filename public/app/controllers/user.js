@@ -1,7 +1,7 @@
 function doRenderTable(id){
 	$.ajax({
         method: "POST",
-        url: "../app/models/user.php"
+        url: "app/models/user.php"
     }).done(function(userdata){
     	// console.log(userdata);
     	_USERTABLE_DATA = JSON.parse(userdata);

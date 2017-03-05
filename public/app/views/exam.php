@@ -113,7 +113,7 @@
 </div>
 <!-- modals end-->
 
-<script src="../app/controllers/exam.js"></script>
+<script src="app/controllers/exam.js"></script>
 <script>
 	// Instance the tour
 	var tour = new Tour({

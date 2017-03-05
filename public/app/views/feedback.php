@@ -1,4 +1,4 @@
-<script src="../app/controllers/feedback.js"></script>
+<script src="app/controllers/feedback.js"></script>
 <div class="box box-success">
 	<div class="box-header with-border">
 		<h3 class="box-title">Manage Feddback</h3>

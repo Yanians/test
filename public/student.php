@@ -1,8 +1,3 @@
-<?php
-	// require __DIR__.'/../app/app.php';
-	define('APP_DIR',__DIR__.'/../app/');
-	define('CONTROLLERS_DIR',"/controllers/");
-?>
 <!DOCTYPE html>
 <html>
 <head>

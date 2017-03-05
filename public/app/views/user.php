@@ -1,4 +1,4 @@
-<script src="../app/controllers/user.js"></script>
+<script src="app/controllers/user.js"></script>
 <div class="box box-success">
 	<div class="box-header with-border">
 		<h3 class="box-title">Manage User</h3>

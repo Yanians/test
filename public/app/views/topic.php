@@ -1,4 +1,4 @@
-<script src="../app/controllers/topic.js"></script>
+<script src="app/controllers/topic.js"></script>
 <div class="box box-success">
 	<div class="box-header with-border">
 		<h3 class="box-title">Manage Topic</h3>

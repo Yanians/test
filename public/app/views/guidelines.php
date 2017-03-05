@@ -1,4 +1,4 @@
-<script src="../app/controllers/guidelines.js"></script>
+<script src="app/controllers/guidelines.js"></script>
 <div class="box box-success">
 	<div class="box-header with-border">
 		<h3 class="box-title">Manage Guidelines</h3>

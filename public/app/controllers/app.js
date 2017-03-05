@@ -369,7 +369,7 @@ function renderSubjectModals(){
 		console.log(newSubject);
 		$.ajax({
 	        method: "POST",
-	        url: "../app/models/subject.php",
+	        url: "app/models/subject.php",
 	        data: {
 	        	action:'createsubject',
 	        	name:newSubject.name,	        	
@@ -419,7 +419,7 @@ function renderSubjectModals(){
 			console.log(newSubject);
 			$.ajax({
 		        method: "POST",
-		        url: "../app/models/subject.php",
+		        url: "app/models/subject.php",
 		        data: {
 		        	action:'updatesubject',
 		        	id:_EXAMTABLE_SELECTED_ID,
@@ -473,7 +473,7 @@ function renderSubjectModals(){
 			};
 		    $.ajax({
 		        method: "POST",
-		        url: "../app/models/subject.php",
+		        url: "app/models/subject.php",
 		        data: {
 		        	action:'deletesubject',
 		        	id:_EXAMTABLE_SELECTED_ID,
@@ -593,7 +593,7 @@ function renderUserModals(){
 		console.log(newUser);
 		$.ajax({
 	        method: "POST",
-	        url: "../app/models/user.php",
+	        url: "app/models/user.php",
 	        data: {
 	        	action:'createuser',
 	        	firstname:newUser.firstname,
@@ -642,7 +642,7 @@ function renderUserModals(){
 			console.log(newUser);
 			$.ajax({
 		        method: "POST",
-		        url: "../app/models/user.php",
+		        url: "app/models/user.php",
 		        data: {
 		        	action:'updateuser',
 		        	id:_EXAMTABLE_SELECTED_ID,
@@ -688,7 +688,7 @@ function renderUserModals(){
 		  if (isConfirm) {
 		    $.ajax({
 		        method: "POST",
-		        url: "../app/models/user.php",
+		        url: "app/models/user.php",
 		        data: {
 		        	action:'deleteuser',
 		        	id:_EXAMTABLE_SELECTED_ID	
@@ -783,7 +783,7 @@ function renderNewsModals(){
 		console.log(newNews);
 		$.ajax({
 	        method: "POST",
-	        url: "../app/models/news.php",
+	        url: "app/models/news.php",
 	        data: {
 	        	action:'createnews',
 	        	userid:newNews.userid,	        	
@@ -826,7 +826,7 @@ function renderNewsModals(){
 			console.log(newNews);
 			$.ajax({
 		        method: "POST",
-		        url: "../app/models/news.php",
+		        url: "app/models/news.php",
 		        data: {
 		        	action:'updatenews',
 		        	id:_EXAMTABLE_SELECTED_ID,     	
@@ -868,7 +868,7 @@ function renderNewsModals(){
 		  if (isConfirm) {
 		    $.ajax({
 		        method: "POST",
-		        url: "../app/models/news.php",
+		        url: "app/models/news.php",
 		        data: {
 		        	action:'deletenews',
 		        	id:_EXAMTABLE_SELECTED_ID  	
@@ -957,7 +957,7 @@ function renderFeedbackModals(){
 		console.log(newFeedback);
 		$.ajax({
 	        method: "POST",
-	        url: "../app/models/feedback.php",
+	        url: "app/models/feedback.php",
 	        data: {
 	        	action:'createfeedback',
 	        	user_id:newFeedback.user_id,	        	
@@ -1001,7 +1001,7 @@ function renderFeedbackModals(){
 			console.log(newFeedback);
 			$.ajax({
 		        method: "POST",
-		        url: "../app/models/feedback.php",
+		        url: "app/models/feedback.php",
 		        data: {
 		        	action:'updatefeedback',
 		        	id:_EXAMTABLE_SELECTED_ID,       	
@@ -1044,7 +1044,7 @@ function renderFeedbackModals(){
 		  if (isConfirm) {
 		    $.ajax({
 		        method: "POST",
-		        url: "../app/models/feedback.php",
+		        url: "app/models/feedback.php",
 		        data: {
 		        	action:'deletefeedback',
 		        	id:_EXAMTABLE_SELECTED_ID	  	
@@ -1142,7 +1142,7 @@ function renderGuidelinesModals(){
 		console.log(newGuidelines);
 		$.ajax({
 	        method: "POST",
-	        url: "../app/models/guidelines.php",
+	        url: "app/models/guidelines.php",
 	        data: {
 	        	action:'createguidelines',
 	        	user_id:newGuidelines.user_id,	            	
@@ -1184,7 +1184,7 @@ function renderGuidelinesModals(){
 			console.log(newGuidelines);
 			$.ajax({
 		        method: "POST",
-		        url: "../app/models/guidelines.php",
+		        url: "app/models/guidelines.php",
 		        data: {
 		        	action:'updateguidelines',
 		        	id: _EXAMTABLE_SELECTED_ID,
@@ -1226,7 +1226,7 @@ function renderGuidelinesModals(){
 		  if (isConfirm) {
 		    $.ajax({
 		        method: "POST",
-		        url: "../app/models/guidelines.php",
+		        url: "app/models/guidelines.php",
 		        data: {
 		        	action:'deleteguidelines',
 		        	id:_EXAMTABLE_SELECTED_ID,	
@@ -1348,7 +1348,7 @@ function renderTopicModals(){
 		console.log(newTopic);
 		$.ajax({
 	        method: "POST",
-	        url: "../app/models/topic.php",
+	        url: "app/models/topic.php",
 	        data: {
 	        	action:'createtopic',
 	        	user_id:newTopic.user_id,	        	
@@ -1391,7 +1391,7 @@ function renderTopicModals(){
 			console.log(newTopic);
 			$.ajax({
 		        method: "POST",
-		        url: "../app/models/topic.php",
+		        url: "app/models/topic.php",
 		        data: {
 		        	action:'updatetopic',
 		        	id:_EXAMTABLE_SELECTED_ID,
@@ -1439,7 +1439,7 @@ function renderTopicModals(){
 			};
 		    $.ajax({
 		        method: "POST",
-		        url: "../app/models/topic.php",
+		        url: "app/models/topic.php",
 		        data: {
 		        	action:'deletetopic',
 		        	id:_EXAMTABLE_SELECTED_ID,

@@ -12,6 +12,6 @@
 <script src="plugins/sweetalert/sweetalert.min.js"></script>
 <script src="plugins/select2/select2.full.min.js"></script>
 <script src="dist/js/app.min.js"></script>
-<script src="controllers/script.js"></script>
+<script src="app/controllers/script.js"></script>
 <script src="dist/js/demo.js"></script>
 <script src="dist/js/plugin_init.js"></script>

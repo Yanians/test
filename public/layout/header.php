@@ -32,4 +32,4 @@
 
 	  <script src="plugins/datatables/jquery.dataTables.min.js"></script>
 	  <script src="plugins/datatables/dataTables.bootstrap.min.js"></script>
-	  <script src="controllers/app.js"></script>
+	  <script src="app/controllers/app.js"></script>

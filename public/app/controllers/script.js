@@ -38,7 +38,7 @@ $('document').ready(function() {
 		
 		$.ajax({
 		type: 'POST',
-		url: '../app/controllers/php/login.php',
+		url: 'app/controllers/php/login.php',
 		data: $('#login-form').serialize() + '&' + $('#login').attr('name') + '=' + $('#login').val(),
 		success: function(status){
 				if (status == true) {
