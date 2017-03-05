@@ -362,7 +362,7 @@
         html += `
           <div class="post" style="border:1px solid #ddd;padding:5px;">
             <div class="user-block">
-              <img class="img-circle img-bordered-sm" src="../public/dist/img/avatar.png" alt="user image">
+              <img class="img-circle img-bordered-sm" src="dist/img/avatar.png" alt="user image">
               <span class="username">
                 <a href="#">The Administrator</a>
                 <!-- <a href="#" class="pull-right btn-box-tool"><i class="fa fa-times"></i></a> -->
