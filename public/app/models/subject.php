@@ -44,7 +44,7 @@
 				$result = mysqli_query($link, $sql) or die("Invalid query" . mysqli_error($link));
 				echo "ok";
 			}
-			else if($_POST['action']=="topics"){				
+			else if($_POST['action']=="topics"){	
 				$table2 = "topic";
 				$sql = "select * from $table";
 				$result = mysqli_query($link, $sql) or die("Invalid query" . mysqli_error($link));

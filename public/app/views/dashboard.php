@@ -404,8 +404,9 @@
         }
       }).done(function(data){
         // console.log(data);
-        STUDENT_SUBJECTS_AND_TOPICS = JSON.parse(data);
-        loadChooseSubject();
+        console.log(JSON.parse(data));
+        // STUDENT_SUBJECTS_AND_TOPICS = JSON.parse(data);
+        // loadChooseSubject();
 
         function loadChooseSubject(){
           /*
