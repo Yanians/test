@@ -397,7 +397,7 @@
     function render_StudentSubjects(){
       let STUDENT_SUBJECTS;
       $.ajax({
-        url:"../app/models/subject.php",
+        url:"app/models/subject.php",
         method: "post",
         data: {
           action:"topics"
