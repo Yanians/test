@@ -17,7 +17,7 @@
 				$result = mysqli_query($link, $sql) or die("Invalid query" . mysqli_error($link));
 				echo "ok";
 			}
-			if($_POST['action']=="updatesubject"){
+			else if($_POST['action']=="updatesubject"){
 				echo "update subject ok!";
 				$id = $_POST['id'];
 				$name = $_POST['name'];
@@ -31,7 +31,7 @@
 				$result = mysqli_query($link, $sql) or die("Invalid query" . mysqli_error($link));
 				echo "ok";
 			}
-			if($_POST['action']=="deletesubject"){
+			else if($_POST['action']=="deletesubject"){
 				echo "delete subject ok!";
 				$id = $_POST['id'];
 				// $name = $_POST['name'];
@@ -43,6 +43,25 @@
 				$sql = "delete from $table where id='$id'";
 				$result = mysqli_query($link, $sql) or die("Invalid query" . mysqli_error($link));
 				echo "ok";
+			}
+			else if($_POST['action']=="topics"){				
+				$table2 = "topic";
+				$sql = "select * from $table";
+				$result = mysqli_query($link, $sql) or die("Invalid query" . mysqli_error($link));
+				$arr = array();
+				while($row=mysqli_fetch_assoc($result)){
+					$sql2 = "select * from $table2 where subject_id='".$row['id']."'";
+					$result2 = mysqli_query($link, $sql2) or die("Invalid query" . mysqli_error($link));
+					$topic = array();
+					while($row2=mysqli_fetch_assoc($result2)){
+						$topic[] = $row2;
+					}
+					// array_push($topic, "criminology", "legal");
+					array_push($row, $topic);
+					$arr[] = $row;					
+				}
+				echo json_encode($arr);
+				// print_r($arr);
 			}
 		}
 		else{	

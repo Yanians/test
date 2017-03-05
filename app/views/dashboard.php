@@ -57,27 +57,13 @@
                   <div class="col-md-12">
                     <div class="form-group">
                       <label>Choose Subject</label>
-                      <select class="form-control select2" style="width: 100%;">
-                        <option selected="selected">Alabama</option>
-                        <option>Alaska</option>
-                        <option disabled="disabled">California (disabled)</option>
-                        <option>Delaware</option>
-                        <option>Tennessee</option>
-                        <option>Texas</option>
-                        <option>Washington</option>
+                      <select class="form-control select2 chooseSubject" style="width: 100%;">
+                        <option selected="selected">Loading Subjects...</option>
                       </select>
                     </div>
                     <div class="form-group">
                       <label>Choose Topic</label>
-                      <select class="form-control select2" style="width: 100%;">
-                        <option selected="selected">Alabama</option>
-                        <option>Alaska</option>
-                        <option disabled="disabled">California (disabled)</option>
-                        <option>Delaware</option>
-                        <option>Tennessee</option>
-                        <option>Texas</option>
-                        <option>Washington</option>
-                      </select>
+                      <select class="form-control select2 chooseTopic" style="width: 100%;">Loading Topics...</select>
                     </div>
                   </div>
                 </div>
@@ -157,7 +143,7 @@
                           <div class="row">
                             <div class="col-sm-3">
                               <label class="">
-                                <div style="position: absolute;margin-left: 7px;margin-top:1px;">A</div>
+                                <div style="position: absolute;margin-left: 6.5px;margin-top:1px;">A</div>
                                 <div class="iradio_flat-green" aria-checked="false" aria-disabled="false" style="position: relative;">
                                   <input type="radio" name="r3" class="flat-red" style="position: absolute; opacity: 0;">
                                   <ins class="iCheck-helper" style="position: absolute; top: 0%; left: 0%; display: block; width: 100%; height: 100%; margin: 0px; padding: 0px; background: rgb(255, 255, 255); border: 0px; opacity: 0;"></ins>
@@ -166,7 +152,7 @@
                             </div>
                             <div class="col-sm-3">
                               <label class="">
-                                <div style="position: absolute;margin-left: 7px;margin-top:1px;">B</div>
+                                <div style="position: absolute;margin-left: 6.5px;margin-top:1px;">B</div>
                                 <div class="iradio_flat-green" aria-checked="false" aria-disabled="false" style="position: relative;">
                                   <input type="radio" name="r3" class="flat-red" style="position: absolute; opacity: 0;">
                                   <ins class="iCheck-helper" style="position: absolute; top: 0%; left: 0%; display: block; width: 100%; height: 100%; margin: 0px; padding: 0px; background: rgb(255, 255, 255); border: 0px; opacity: 0;"></ins>
@@ -175,7 +161,7 @@
                             </div>
                             <div class="col-sm-3">
                               <label class="">
-                                <div style="position: absolute;margin-left: 7px;margin-top:1px;">C</div>
+                                <div style="position: absolute;margin-left: 6.5px;margin-top:1px;">C</div>
                                 <div class="iradio_flat-green" aria-checked="false" aria-disabled="false" style="position: relative;">
                                   <input type="radio" name="r3" class="flat-red" style="position: absolute; opacity: 0;">
                                   <ins class="iCheck-helper" style="position: absolute; top: 0%; left: 0%; display: block; width: 100%; height: 100%; margin: 0px; padding: 0px; background: rgb(255, 255, 255); border: 0px; opacity: 0;"></ins>
@@ -184,7 +170,7 @@
                             </div>
                             <div class="col-sm-3">
                               <label class="">
-                                <div style="position: absolute;margin-left: 7px;margin-top:1px;">D</div>
+                                <div style="position: absolute;margin-left: 6.5px;margin-top:1px;">D</div>
                                 <div class="iradio_flat-green" aria-checked="false" aria-disabled="false" style="position: relative;">
                                   <input type="radio" name="r3" class="flat-red" style="position: absolute; opacity: 0;">
                                   <ins class="iCheck-helper" style="position: absolute; top: 0%; left: 0%; display: block; width: 100%; height: 100%; margin: 0px; padding: 0px; background: rgb(255, 255, 255); border: 0px; opacity: 0;"></ins>
@@ -230,7 +216,7 @@
               <div class="box-header with-border">
                 <h3 class="box-title">General Instructions</h3>
                   <div class="box-tools pull-right">
-                    <!-- <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i></button> -->
+                    <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i></button>
                   </div>
               </div>
               <div class="box-body">
@@ -289,61 +275,6 @@
           </div>
         </div>
       </div>
-
-      <!-- <div class="tab-pane" id="settings">
-        <form class="form-horizontal">
-          <div class="form-group">
-            <label for="inputName" class="col-sm-2 control-label">Name</label>
-
-            <div class="col-sm-10">
-              <input type="email" class="form-control" id="inputName" placeholder="Name">
-            </div>
-          </div>
-          <div class="form-group">
-            <label for="inputEmail" class="col-sm-2 control-label">Email</label>
-
-            <div class="col-sm-10">
-              <input type="email" class="form-control" id="inputEmail" placeholder="Email">
-            </div>
-          </div>
-          <div class="form-group">
-            <label for="inputName" class="col-sm-2 control-label">Name</label>
-
-            <div class="col-sm-10">
-              <input type="text" class="form-control" id="inputName" placeholder="Name">
-            </div>
-          </div>
-          <div class="form-group">
-            <label for="inputExperience" class="col-sm-2 control-label">Experience</label>
-
-            <div class="col-sm-10">
-              <textarea class="form-control" id="inputExperience" placeholder="Experience"></textarea>
-            </div>
-          </div>
-          <div class="form-group">
-            <label for="inputSkills" class="col-sm-2 control-label">Skills</label>
-
-            <div class="col-sm-10">
-              <input type="text" class="form-control" id="inputSkills" placeholder="Skills">
-            </div>
-          </div>
-          <div class="form-group">
-            <div class="col-sm-offset-2 col-sm-10">
-              <div class="checkbox">
-                <label>
-                  <input type="checkbox"> I agree to the <a href="#">terms and conditions</a>
-                </label>
-              </div>
-            </div>
-          </div>
-          <div class="form-group">
-            <div class="col-sm-offset-2 col-sm-10">
-              <button type="submit" class="btn btn-danger">Submit</button>
-            </div>
-          </div>
-        </form>
-      </div> -->
-
     </div>
   </div>
 </div>
@@ -356,7 +287,8 @@
       increaseArea: '20%' // optional
     });
 
-    function render_News(){
+    //Home Tab Controllers
+    function render_StudentNews(){
       let html = ``;
       for(let i=0;i<5;i++){
         html += `
@@ -385,7 +317,7 @@
       }
       $('.news').html(html);
     }
-    function render_Exams(){
+    function render_StudentExams(){
       let data = [
         {
           "subject":"Finance",
@@ -458,7 +390,61 @@
       $('.exams').html(html);
       $('.exams-total').html(`Total Exam Taken: 5`);
     }
-    render_News();
-    render_Exams();
+    render_StudentNews();
+    render_StudentExams();
+
+    //Take Exam Controllers
+    function render_StudentSubjects(){
+      let STUDENT_SUBJECTS;
+      $.ajax({
+        url:"../app/models/subject.php",
+        method: "post",
+        data: {
+          action:"topics"
+        }
+      }).done(function(data){
+        // console.log(data);
+        STUDENT_SUBJECTS_AND_TOPICS = JSON.parse(data);
+        loadChooseSubject();
+
+        function loadChooseSubject(){
+          /*
+            bootstrap css select guide
+            <option selected="selected">Alabama</option>
+            <option>Alaska</option>
+            <option disabled="disabled">California (disabled)</option>
+          */
+          let html = ``;
+          STUDENT_SUBJECTS_AND_TOPICS.map((obj)=>{
+            html += `<option>${obj.name}</option>`;          
+          });
+          $('.chooseSubject').html(html);  
+          if(STUDENT_SUBJECTS_AND_TOPICS.length>0)        
+            loadChooseTopic(STUDENT_SUBJECTS_AND_TOPICS[0].name);          
+        }
+        function loadChooseTopic(subject){
+          let html = ``;
+          let index=0;
+          for(let obj of STUDENT_SUBJECTS_AND_TOPICS){
+            // console.log(`${obj.name}===${subject}`);
+            if(obj.name==subject){
+              STUDENT_SUBJECTS_AND_TOPICS[index][0].map((topic)=>{
+                html += `<option>${topic.name}</option>`;
+              });
+              break;
+            }
+            index++;
+          }
+          $('.chooseSubject').val(STUDENT_SUBJECTS_AND_TOPICS[index].name);
+          $('.chooseTopic').html(html); 
+        }
+
+        $('.chooseSubject').change(function(){
+          loadChooseTopic($('.chooseSubject').val());
+          // console.log($('.chooseSubject').val());
+        });
+      });
+    }
+    render_StudentSubjects();
   });
 </script>
