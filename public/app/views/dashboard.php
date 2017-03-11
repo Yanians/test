@@ -7,7 +7,7 @@
   <div class="nav-tabs-custom">
     <ul class="nav nav-tabs">              
       <li class="active"><a href="#home" data-toggle="tab">Home</a></li>
-      <li><a href="#takeexam" data-toggle="tab">Take Exam</a></li>
+      <li><a href="#takequiz" data-toggle="tab">Take Quiz</a></li>
       
       <li class="pull-right"><a href="#">Welcome Student (student@gmail.com)!</a></li>
 
@@ -45,12 +45,12 @@
         </div>
       </div>
          
-      <div class="tab-pane" id="takeexam">
+      <div class="tab-pane" id="takequiz">
         <div class="row">
           <div class="col-md-4">
             <div class="box box-default">
               <div class="box-header with-border">
-                <h3 class="box-title">Exam Information</h3>
+                <h3 class="box-title">Quiz Information</h3>
                   <div class="box-tools pull-right">
                     <!-- <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i></button> -->
                   </div>
@@ -70,14 +70,14 @@
               </div>
               <div class="box-footer">
                 <div class="btn-group pull-right">
-                  <button type="submit" class="btn bg-maroon btn-flat margin startexam">Start Examination</button>               
+                  <button type="submit" class="btn bg-maroon btn-flat margin startquiz">Start Quiz</button>               
                   <!-- <button type="submit" class="btn bg-purple btn-flat margin chooseagain">Choose Again</button> -->
                 </div>
               </div>
             </div>      
           </div>
           <div class="col-md-8">
-            <div class="box exam-sheet">
+            <div class="box quiz-sheet">
               <div class="box-header with-border">
                 <h3 class="box-title subject-chosen">Subject Chosen</h3>
                 <h5 class="box-title pull-right">
@@ -85,61 +85,26 @@
                 </h5>
                 </div>
                 <div class="box-body">
-                  <!-- <button type="submit" class="btn bg-green btn-flat startexam">Press this button once you are ready!</button>  -->
+                  <!-- <button type="submit" class="btn bg-green btn-flat startquiz">Press this button once you are ready!</button>  -->
                   <div class="form-group">
                     <label>Choose Topic</label>
                     <select class="form-control select2 chooseTopic" style="width: 100%;">Loading Topics...</select>
                   </div>
-                  <div class="text-center" style="margin-bottom: 30px;">                    
+                  <div class="text-center" style="margin-bottom: 30px;">    <!--                 
                       <h1 class="exam-timer">00:00:00</h1>
-                      <h6>Time Remaining</h6>                    
+                      <h6>Time Remaining</h6>    -->                 
                   </div>
-                  <ul class="pagination pagination-sm no-margin">
-                    <li><a class="disabled" href="#">001</a></li>
-                    <li><a href="#">002</a></li>
-                    <li><a href="#">003</a></li>
-                    <li><a href="#">004</a></li>
-                    <li><a href="#">005</a></li>
-                    <li><a href="#">006</a></li>
-                    <li><a href="#">007</a></li>
-                    <li><a href="#">008</a></li>
-                    <li><a href="#">009</a></li>
-                    <li><a href="#">010</a></li>
-                    <li><a href="#">001</a></li>
-                    <li><a href="#">002</a></li>
-                    <li><a href="#">003</a></li>
-                    <li><a href="#">004</a></li>
-                    <li><a href="#">005</a></li>
-                    <li><a href="#">006</a></li>
-                    <li><a href="#">007</a></li>
-                    <li><a href="#">008</a></li>
-                    <li><a href="#">009</a></li>
-                    <li><a href="#">010</a></li>
-                    <li><a href="#">001</a></li>
-                    <li><a href="#">002</a></li>
-                    <li><a href="#">003</a></li>
-                    <li><a href="#">004</a></li>
-                    <li><a href="#">005</a></li>
-                    <li><a href="#">006</a></li>
-                    <li><a href="#">007</a></li>
-                    <li><a href="#">008</a></li>
-                    <li><a href="#">009</a></li>
-                    <li><a href="#">010</a></li>
-                    <li><a href="#">001</a></li>
-                    <li><a href="#">002</a></li>
-                    <li><a href="#">003</a></li>
-                    <li><a href="#">004</a></li>
-                    <li><a href="#">005</a></li>
-                    <li><a href="#">006</a></li>
-                    <li><a href="#">007</a></li>
-                    <li><a href="#">008</a></li>
-                    <li><a href="#">009</a></li>
-                    <li><a href="#">010</a></li>
-                  </ul>
-                  <table class="table">
+                  <div class="row">
+                    <center>
+                      <ul class="pagination pagination-sm no-margin" id="quiz-nav">
+                
+                      </ul>
+                    </center>
+                  </div>
+                  <table class="table" id="quiz-table">
                     <tr>
                       <th style="width:150px">Choose Answer</th>
-                      <th style="padding-left:30px">Question: 001</th>
+                      <th style="padding-left:30px">Question: <span id="quiz-question-sequence">001</span><span id="quiz-question-quizid">-1</span></th>
                     </tr>
                     <tr>
                       <td>
@@ -148,16 +113,16 @@
                             <div class="col-sm-3">
                               <label class="">
                                 <div style="position: absolute;margin-left: 6.5px;margin-top:1px;">A</div>
-                                <div class="iradio_flat-green" aria-checked="false" aria-disabled="false" style="position: relative;">
+                                <div id="quiz_select_a" class="iradio_flat-green" aria-checked="false" aria-disabled="false" style="position: relative;">
                                   <input type="radio" name="r3" class="flat-red" style="position: absolute; opacity: 0;">
-                                  <ins class="iCheck-helper" style="position: absolute; top: 0%; left: 0%; display: block; width: 100%; height: 100%; margin: 0px; padding: 0px; background: rgb(255, 255, 255); border: 0px; opacity: 0;"></ins>
+                                  <ins  class="iCheck-helper" style="position: absolute; top: 0%; left: 0%; display: block; width: 100%; height: 100%; margin: 0px; padding: 0px; background: rgb(255, 255, 255); border: 0px; opacity: 0;"></ins>
                                 </div>
                               </label>                              
                             </div>
                             <div class="col-sm-3">
                               <label class="">
                                 <div style="position: absolute;margin-left: 6.5px;margin-top:1px;">B</div>
-                                <div class="iradio_flat-green" aria-checked="false" aria-disabled="false" style="position: relative;">
+                                <div id="quiz_select_b" class="iradio_flat-green" aria-checked="false" aria-disabled="false" style="position: relative;">
                                   <input type="radio" name="r3" class="flat-red" style="position: absolute; opacity: 0;">
                                   <ins class="iCheck-helper" style="position: absolute; top: 0%; left: 0%; display: block; width: 100%; height: 100%; margin: 0px; padding: 0px; background: rgb(255, 255, 255); border: 0px; opacity: 0;"></ins>
                                 </div>
@@ -166,7 +131,7 @@
                             <div class="col-sm-3">
                               <label class="">
                                 <div style="position: absolute;margin-left: 6.5px;margin-top:1px;">C</div>
-                                <div class="iradio_flat-green" aria-checked="false" aria-disabled="false" style="position: relative;">
+                                <div id="quiz_select_c" class="iradio_flat-green" aria-checked="false" aria-disabled="false" style="position: relative;">
                                   <input type="radio" name="r3" class="flat-red" style="position: absolute; opacity: 0;">
                                   <ins class="iCheck-helper" style="position: absolute; top: 0%; left: 0%; display: block; width: 100%; height: 100%; margin: 0px; padding: 0px; background: rgb(255, 255, 255); border: 0px; opacity: 0;"></ins>
                                 </div>
@@ -175,7 +140,7 @@
                             <div class="col-sm-3">
                               <label class="">
                                 <div style="position: absolute;margin-left: 6.5px;margin-top:1px;">D</div>
-                                <div class="iradio_flat-green" aria-checked="false" aria-disabled="false" style="position: relative;">
+                                <div id="quiz_select_d" class="iradio_flat-green" aria-checked="false" aria-disabled="false" style="position: relative;">
                                   <input type="radio" name="r3" class="flat-red" style="position: absolute; opacity: 0;">
                                   <ins class="iCheck-helper" style="position: absolute; top: 0%; left: 0%; display: block; width: 100%; height: 100%; margin: 0px; padding: 0px; background: rgb(255, 255, 255); border: 0px; opacity: 0;"></ins>
                                 </div>
@@ -185,26 +150,26 @@
                         </div>
                       </td>
                       <td style="padding-left:30px">
-                        <div>
+                        <div id="quiz-question">
                           The mailbox rule generally makes acceptance of an offer effective at the time the acceptance is dispatched. The mailbox rule does not apply if
                         </div>
                         <div>&nbsp;</div>
                         <table>
                           <tr>
                             <td valign="top">A.</td>
-                            <td style="padding-left:5px">Both the offeror and offeree are merchants.asdfasdfasdfasdf adsfa dfa sdfa sdf asdf asdf asdf asdf asdf asdf adsf asdf asdf adsf asdf asdf asdf asdf asdf asdf asdfasd f</td>
+                            <td style="padding-left:5px" id="quiz-choice_a">Both the offeror and offeree are merchants.asdfasdfasdfasdf adsfa dfa sdfa sdf asdf asdf asdf asdf asdf asdf adsf asdf asdf adsf asdf asdf asdf asdf asdf asdf asdfasd f</td>
                           </tr>
                           <tr>
                             <td valign="top">B.</td>
-                            <td style="padding-left:5px">The offer proposes a sale of real estate.</td>
+                            <td style="padding-left:5px" id="quiz-choice_b">The offer proposes a sale of real estate.</td>
                           </tr>
                           <tr>
                             <td valign="top">C.</td>
-                            <td style="padding-left:5px">The offer provides that an acceptance shall not be effective until actually received.</td>
+                            <td style="padding-left:5px" id="quiz-choice_c">The offer provides that an acceptance shall not be effective until actually received.</td>
                           </tr>
                           <tr>
                             <td valign="top">D.</td>
-                            <td style="padding-left:5px">The duration of the offer is not in excess of 3 months.</td>
+                            <td style="padding-left:5px" id="quiz-choice_d">The duration of the offer is not in excess of 3 months.</td>
                           </tr>
                         </table>
                       </td>
@@ -218,7 +183,7 @@
           <div class="col-sm-12">
             <div class="box box-danger">
               <div class="box-header with-border">
-                <h3 class="box-title">General Instructions</h3>
+                <h3 class="box-title">More Information About The Exam</h3>
                   <div class="box-tools pull-right">
                     <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i></button>
                   </div>
@@ -408,7 +373,7 @@
       }).done(function(data){
         // console.log(data);
         // console.log(JSON.parse(data));
-        STUDENT_SUBJECTS_AND_TOPICS = JSON.parse(data);
+        util.data.STUDENT_SUBJECTS_AND_TOPICS = JSON.parse(data);
         loadChooseSubject();
 
         function loadChooseSubject(){
@@ -419,42 +384,78 @@
             <option disabled="disabled">California (disabled)</option>
           */
           let html = ``;
-          STUDENT_SUBJECTS_AND_TOPICS.map((obj)=>{
+          util.data.STUDENT_SUBJECTS_AND_TOPICS.map((obj)=>{
             html += `<option>${obj.name}</option>`;          
           });
           $('.chooseSubject').html(html);  
-          if(STUDENT_SUBJECTS_AND_TOPICS.length>0){        
-            loadChooseTopic(STUDENT_SUBJECTS_AND_TOPICS[0].name);            
+          if(util.data.STUDENT_SUBJECTS_AND_TOPICS.length>0){        
+            loadChooseTopic(util.data.STUDENT_SUBJECTS_AND_TOPICS[0].name);            
           }
         }
         function loadChooseTopic(subject){          
           let html = ``;
           let index=0;
-          for(let obj of STUDENT_SUBJECTS_AND_TOPICS){
+          for(let obj of util.data.STUDENT_SUBJECTS_AND_TOPICS){
             // console.log(`${obj.name}===${subject}`);
             if(obj.name==subject){
-              STUDENT_SUBJECTS_AND_TOPICS[index][0].map((topic)=>{
+              util.data.STUDENT_SUBJECTS_AND_TOPICS[index][0].map((topic)=>{
                 html += `<option>${topic.name}</option>`;
               });
               break;
             }
             index++;
           }          
-          $('.chooseSubject').val(STUDENT_SUBJECTS_AND_TOPICS[index].name);
+          $('.chooseSubject').val(util.data.STUDENT_SUBJECTS_AND_TOPICS[index].name);
           $('.chooseTopic').html(html);
-          $('.subject-totalitems').html(STUDENT_SUBJECTS_AND_TOPICS[index].items);
-          $('.subject-passingrate').html(STUDENT_SUBJECTS_AND_TOPICS[index].passingrate);
-          $('.subject-timeduration').html(STUDENT_SUBJECTS_AND_TOPICS[index].timeduration);
-          $('.subject-attempts').html(STUDENT_SUBJECTS_AND_TOPICS[index].attempts);
+          $('.subject-totalitems').html(util.data.STUDENT_SUBJECTS_AND_TOPICS[index].items);
+          $('.subject-passingrate').html(util.data.STUDENT_SUBJECTS_AND_TOPICS[index].passingrate);
+          $('.subject-timeduration').html(util.data.STUDENT_SUBJECTS_AND_TOPICS[index].timeduration);
+          $('.subject-attempts').html(util.data.STUDENT_SUBJECTS_AND_TOPICS[index].attempts);
           $('.subject-chosen').html(shortText($('.chooseSubject').val()));
 
-          STUDENT_SUBJECT_INDEX = index;
-          STUDENT_SUBJECT_ID_CHOSEN = STUDENT_SUBJECTS_AND_TOPICS[index].id;
-          STUDENT_TOPIC_ID_CHOSEN = getTopicID($('.chooseTopic').val(),index);
+          util.data.STUDENT_SUBJECT_INDEX = index;
+          util.data.STUDENT_SUBJECT_ID_CHOSEN = util.data.STUDENT_SUBJECTS_AND_TOPICS[index].id;
+          util.data.STUDENT_TOPIC_ID_CHOSEN = getTopicID($('.chooseTopic').val(),index);
+          loadTopicQuizQuestions();
+          // console.log("Subject:",util.data.STUDENT_SUBJECT_ID_CHOSEN);
+          // console.log("Topic:",util.data.STUDENT_TOPIC_ID_CHOSEN);          
+        }
+
+        function loadTopicQuizQuestions(){
+          // console.log("Subject:",util.data.STUDENT_SUBJECT_ID_CHOSEN);
+          // console.log("Topic:",util.data.STUDENT_TOPIC_ID_CHOSEN);
+          let payload = {
+              "subject_id":util.data.STUDENT_SUBJECT_ID_CHOSEN,
+              "topic_id":util.data.STUDENT_TOPIC_ID_CHOSEN
+          };
+          $.ajax({
+            url:"app/models/quiz.php",
+            method: "post",
+            data: {
+              action:"fetchquiz",
+              payload: payload
+            }
+          }).done(function(res){            
+            // console.log(res);
+            data = JSON.parse(res);
+            util.data.STUDENT_SUBJECTS_AND_TOPICS_QUIZ = data;
+            // console.log(data);
+            if(data.length>0){
+              util.showQuiz(0);
+              let html = ``;
+              for(let i=0;i<data.length;i++){
+                html+=`<li><a href="#" onclick="util.showQuiz(${i})">${util.formatItem(i+1)}</a></li>`;
+              }
+              $('#quiz-nav').html(html);
+            }
+            else{
+              util.showQuiz(-1);
+            }
+          });
         }
 
         function shortText(text){if(text.length<10)return text; var shortText = jQuery.trim(text).substring(0, 50).split(" ").slice(0, -1).join(" ") + "..."; return shortText; }
-        function getTopicID(topic,index){let id = -1; STUDENT_SUBJECTS_AND_TOPICS[index][0].map((obj)=>{if(obj.name === topic){id = obj.id; } }); return id; }
+        function getTopicID(topic,index){let id = -1; util.data.STUDENT_SUBJECTS_AND_TOPICS[index][0].map((obj)=>{if(obj.name === topic){id = obj.id; } }); return id; }
         
         $('.chooseSubject').change(function(){
           loadChooseTopic($('.chooseSubject').val());          
@@ -462,45 +463,76 @@
         });
         $('.chooseTopic').change(function(){
           // loadChooseTopic($('.chooseSubject').val());
-          STUDENT_TOPIC_ID_CHOSEN = getTopicID($('.chooseTopic').val(),STUDENT_SUBJECT_INDEX);
-          // console.log(STUDENT_TOPIC_ID_CHOSEN);
+          util.data.STUDENT_TOPIC_ID_CHOSEN = getTopicID($('.chooseTopic').val(),util.data.STUDENT_SUBJECT_INDEX);
+          loadTopicQuizQuestions();
+          // console.log(util.data.STUDENT_TOPIC_ID_CHOSEN);
           // console.log($('.chooseTopic').val());
         });
-        $('.startexam').click(function(){
+        $('#quiz_select_a').click(function(){
+          let index =  $('#quiz-question-quizid').html();
+          console.log("you have selected A");
+          console.log(index);
+
+          //TODO's
+          //DETECT QUIZ ID
+          //SAVE QUIZ LOG TO DATABASE
+          //REFRESH THE JSON AND LABEL PAGINATION AS ANSWERED (APPLY COLOR GREEN)
+
+          let quizlog = {
+            "selected":{
+              "letter":"A",
+              "details":$('#quiz-choice_a').html()
+            },
+            "quiz_id":util.data.STUDENT_SUBJECTS_AND_TOPICS_QUIZ[index].id,
+            "user_id":"2",
+          };
+          util.data.STUDENT_SUBJECTS_AND_TOPICS_QUIZ[index].quizlog = quizlog;
+          console.log("Set Quiz Log",util.data.STUDENT_SUBJECTS_AND_TOPICS_QUIZ[index].quizlog);
+        });
+        $('#quiz_select_b').click(function(){
+          console.log("you have selected B");
+        });
+        $('#quiz_select_c').click(function(){
+          console.log("you have selected C");
+        });
+        $('#quiz_select_d').click(function(){
+          console.log("you have selected D");
+        });
+        $('.startquiz').click(function(){
           // console.log("Start Exam");
-          let examLog = {
+          let quizLog = {
             "user_id":1,
-            "subject_id":STUDENT_SUBJECT_ID_CHOSEN,
-            "topic_id":STUDENT_TOPIC_ID_CHOSEN,
+            "subject_id":util.data.STUDENT_SUBJECT_ID_CHOSEN,
+            "topic_id":util.data.STUDENT_TOPIC_ID_CHOSEN,
             "question_id":1,
             "answer":"X",
             "timeremaining":`00:${$('.subject-timeduration').html()}:00`
           };
           // console.log(examLog);
           $.ajax({
-            url:"app/models/exam.php",
+            url:"app/models/quiz.php",
             method: "post",
             data: {
               action:"setlog",
-              examlog: examLog
+              examlog: quizLog
             }
-          }).done(function(res){
+          }).done(function(res){            
             data = JSON.parse(res);
             // console.log(data.result);
             if(data.result=="ok"){
               $('.chooseSubject').attr('disabled','disabled');
               $('.subject-chosen').html(shortText($('.chooseSubject').val()));
-              $('.startexam').attr('disabled','disabled');
+              $('.startquiz').attr('disabled','disabled');
               $('.chooseagain').attr('disabled','disabled');
-              $('.exam-sheet').show();
+              $('.quiz-sheet').show();
               // $('.chooseSubject').removeAttr('disabled');
 
-                $(".exam-timer")
-                .countdown("2018/01/01", function(event) {
-                  $(this).text(
-                    event.strftime('%H:%M:%S')
-                  );
-                });
+                // $(".exam-timer")
+                // .countdown("2018/01/01", function(event) {
+                //   $(this).text(
+                //     event.strftime('%H:%M:%S')
+                //   );
+                // });
             }
             else{
               console.log("Contact your admin! Course previously taken.");
@@ -512,9 +544,9 @@
             // else{
             //   $('.chooseSubject').attr('disabled','disabled');
             //   $('.subject-chosen').html(shortText($('.chooseSubject').val()));
-            //   $('.startexam').attr('disabled','disabled');
+            //   $('.startquiz').attr('disabled','disabled');
             //   $('.chooseagain').attr('disabled','disabled');
-            //   $('.exam-sheet').show();
+            //   $('.quiz-sheet').show();
             //   // $('.chooseSubject').removeAttr('disabled');
             // }
           });
@@ -523,10 +555,42 @@
     }
     render_StudentSubjects();
 
-    $('.exam-sheet').hide();
-    let STUDENT_SUBJECTS_AND_TOPICS;
-    let STUDENT_SUBJECT_INDEX;
-    let STUDENT_SUBJECT_ID_CHOSEN;
-    let STUDENT_TOPIC_ID_CHOSEN;
+    $('.quiz-sheet').hide();
+
+
+
   });
+
+  class Utilities{
+    constructor(){
+      this.data = {
+        STUDENT_SUBJECTS_AND_TOPICS:[],
+        STUDENT_SUBJECT_INDEX:[],
+        STUDENT_SUBJECT_ID_CHOSEN:[],
+        STUDENT_TOPIC_ID_CHOSEN:[],
+        STUDENT_SUBJECTS_AND_TOPICS_QUIZ:[],
+        STUDENT_SUBJECTS_AND_TOPICS_QUIZ_SELECTED_INDEX:-1,
+      };
+    }
+    showQuiz(index){
+      if(index>=0){
+        // this.STUDENT_SUBJECTS_AND_TOPICS_QUIZ_SELECTED_INDEX = index;
+        $('#quiz-question-quizid').html(index);
+        console.log(this.data.STUDENT_SUBJECTS_AND_TOPICS_QUIZ[index]);
+        $('#quiz-table').show();
+        $('#quiz-question-sequence').html(this.formatItem(index+1));
+        $('#quiz-question').html(this.data.STUDENT_SUBJECTS_AND_TOPICS_QUIZ[index].questions.question);
+        $('#quiz-choice_a').html(this.data.STUDENT_SUBJECTS_AND_TOPICS_QUIZ[index].questions.choice_a);
+        $('#quiz-choice_b').html(this.data.STUDENT_SUBJECTS_AND_TOPICS_QUIZ[index].questions.choice_b);
+        $('#quiz-choice_c').html(this.data.STUDENT_SUBJECTS_AND_TOPICS_QUIZ[index].questions.choice_c);
+        $('#quiz-choice_d').html(this.data.STUDENT_SUBJECTS_AND_TOPICS_QUIZ[index].questions.choice_d);
+      }
+      else{
+        $('#quiz-table').hide();
+        $('#quiz-nav').html("NO QUESTION ASSIGNED!");        
+      }
+    }
+    formatItem(val){if(val<10)return '00'+val; else if(val<100)return '0'+val; else return val; }
+  }
+  let util = new Utilities();
 </script>
