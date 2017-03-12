@@ -6,16 +6,16 @@
 <div class="col-md-12" style="margin-top: 10px;">
   <div class="nav-tabs-custom">
     <ul class="nav nav-tabs">              
-      <li><a href="#home" data-toggle="tab">Home</a></li>
+      <li  class="active"><a href="#home" data-toggle="tab">Home</a></li>
       <li><a href="#takequiz" data-toggle="tab">Take Quiz</a></li>
-      <li class="active"><a href="#takeexam" data-toggle="tab">Take Exam</a></li>
+      <li><a href="#takeexam" data-toggle="tab">Take Exam</a></li>
       
       <li class="pull-right"><a href="#">Welcome Student (student@gmail.com)!</a></li>
 
       <!-- <li><a href="#settings" data-toggle="tab">Settings</a></li>               -->
     </ul>
     <div class="tab-content">
-      <div class="tab-pane" id="home">        
+      <div class="active tab-pane" id="home">        
         <div class="row">
           <div class="col-md-7">
             <h3>
@@ -253,7 +253,7 @@
         </div>
       </div>
 
-      <div class="active tab-pane" id="takeexam">
+      <div class="tab-pane" id="takeexam">
         <?php require_once("exam-student.php"); ?>
       </div>
 

@@ -6,18 +6,52 @@
 	.align-right{
 		text-align: left;
 	}
+	.align-center{
+		text-align: center;
+	}
 	.dl-horizontal dt, .dl-horizontal dd{
 		padding: 3px;
 	}
+	.modal {
+	  text-align: center;
+	  padding: 0!important;
+	}
+
+	.modal:before {
+	  content: '';
+	  display: inline-block;
+	  height: 100%;
+	  vertical-align: middle;
+	  margin-right: -4px;
+	}
+
+	.modal-dialog {
+	  display: inline-block;
+	  text-align: left;
+	  vertical-align: middle;
+	}	
 </style>
 <div class="row take-exam-tab"></div>
 <script>
 	class Exam{
+		/*
+			NOTE: The following are the status on exam_user table
+				DEFAULT 	- Student has been allowed to take the exam but did not take it yet
+				ONGOING		- Student has already clicked the take exam start button
+				INTERRUPTED	- Student exprienced an internet failure or accidentally refresh the page.
+							  This status need to follow recovery protocol:
+							  	1. Request permission to admin to take another exam.
+							  	2. Attach reason.
+							  	3. Wait for admin approval.
+							  	4. Once approved, student may take again the exam.
+				DONE TIMESUP  - Student has been finished taking the exam with no time remaining left.
+				DONE ADVANCED - Student has been finished taking the exam with an extra time remaining left.
+		*/
 		constructor(){
 			this.state = [];
 			// this.verifyExamInfo();
-			this.main();
-			this.initialize(); //jquery actions
+			this.main();			
+			this.initialize();
 		}
 		verifyExamInfo(){
 			let html = `
@@ -50,11 +84,12 @@
 		}
 		initialize(){
 			$('#exam-user-password-notif').hide();
+			$( "#exam-user-password" ).keypress(function (e) {var key = e.which; if(key == 13) {$('#exam-user-btnverify').click(); return false; } });
 			$('#exam-user-btnverify').click(function(){
 				$('#exam-user-btnverify').html("Loading...");
 				setTimeout(function(){
 					exam.verifyUser();
-				},1000);
+				},500);
 			});
 			let buttons = ``;
 			for(let i=1;i<=200;i++){
@@ -66,6 +101,13 @@
 			$('#exam-student-item-buttons').html(buttons);
 			$('#exam-student-btn0001').addClass('active');
 			// $('#exam-student-btn0001').removeClass('active');
+			$('#exam-student-btnsubmitnow').click(function(){
+				$('#exam-student-submitnow').modal('show');
+			});
+			$('#exam-student-yessubmitnow').click(function(){
+				exam.submitNow("DONE ADVANCED");
+			});
+
 		}
 
 		verifyUser(){
@@ -103,13 +145,19 @@
 			});
 		}
 
-		main(){
+		main(){			
+			this.mainLayout();
+			this.initialize(); //jquery actions
+		}
+
+		mainLayout(){
 			let html = `
 				<div class="col-md-12">
 					<div class="box box-default">
 						<div class="box-header with-border">
-							<h3 class="box-title"><i class="fa fa-clock-o"></i> 00:00:00</h3>
+							<h3 class="box-title"><i class="fa fa-clock-o"></i> <span id="exam-student-timer">00:00:00</span></h3>
 							<div class="box-tools pull-right">
+								<button id="exam-student-btnsubmitnow" type="button" class="btn btn-danger btn-flat">Submit Now</button>
 								<!-- <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i></button> -->
 							</div>
 						</div>
@@ -212,8 +260,124 @@
 						</div>						
 					</div>      
 				</div>
+
+				${this.modals()}
 			`;
 			$('.take-exam-tab').html(html);
+			$('input[type=radio]').iCheck({
+			  checkboxClass: 'icheckbox_square-green',
+			  radioClass: 'iradio_square-green',
+			  increaseArea: '20%' // optional
+			});
+			$('#exam-student-timer').countdowntimer({
+				hours : 0,
+				minutes :0,
+				seconds: 5,
+				timeUp : function(){
+					exam.submitNow("DONE TIMESUP");
+					$('#exam-student-submitnow').modal('hide');
+					$('#exam-student-timesup').modal({backdrop: 'static', keyboard: false}); $('#exam-student-timesup').modal('show'); }
+			});
+			$('#exam-student-reload').click(function(){setTimeout(function(){exam.verifyExamInfo(); exam.initialize(); },1000); });
+
+
+		}
+
+		modals(){
+			return `
+				<div class="modal fade" tabindex="-1" role="dialog" id="exam-student-submitnow">
+					<div class="modal-dialog" role="document">
+						<div class="modal-content">							
+							<div class="modal-body align-center">
+								<div> <i class="fa fa-question-circle fa-5x"></i> </div>
+								<h4>Are you sure you want to submit this exam?</h4>
+								<h6>You have more time left and you might want to review your answers first.</h6>
+							</div>
+							<div class="modal-footer align-center">								
+								<a href="#" class="btn btn-default" data-dismiss="modal">No, not yet!</a>
+								<a href="#" id="exam-student-yessubmitnow" class="btn btn-primary" data-dismiss="modal">Yes, I am sure!</a>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="modal fade" tabindex="-1" role="dialog" id="exam-student-timesup">
+					<div class="modal-dialog" role="document">
+						<div class="modal-content">							
+							<div class="modal-body align-center">
+								<div> <i class="fa fa-clock-o fa-5x"></i> </div>
+								<h4>Time is up!</h4>
+								<h6>Your answers has been successfully submitted.</h6>
+							</div>
+							<div class="modal-footer align-center">								
+								<a href="#" id="exam-student-reload" class="btn btn-primary" data-dismiss="modal">Back to Home</a>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="modal fade" tabindex="-1" role="dialog" id="exam-student-modal-yessubmitnow">
+					<div class="modal-dialog" role="document">
+						<div class="modal-content">							
+							<div class="modal-body align-center">
+								<div> <i class="fa fa-thumbs-o-up fa-5x"></i> </div>
+								<h4>Done!</h4>
+								<h6>All exam logs have been successfully saved.</h6>
+							</div>
+							<div class="modal-footer align-center">								
+								<a href="#" id="exam-student-reload" class="btn btn-primary" data-dismiss="modal">Back to Home</a>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="modal modal-danger fade" tabindex="-1" role="dialog" id="exam-student-servererror">
+					<div class="modal-dialog" role="document">
+						<div class="modal-content">							
+							<div class="modal-body align-center">
+								<div> <i class="fa fa-cloud-upload fa-5x"></i> </div>
+								<h4>Slow internet connection detected!</h4>
+								<h6>Kindly provide a stable internet connection in order to get full service.</h6>
+							</div>
+							<div class="modal-footer align-center">								
+								<a href="#" id="exam-student-reload" class="btn btn-warning" data-dismiss="modal">Check Connection Again</a>
+							</div>
+						</div>
+					</div>
+				</div>
+			`;
+		}
+
+		submitNow(status){
+			let payload = {
+				id:this.getExamUserID,
+				status:status
+			};
+			$.ajax({
+				url: "app/models/exam-student.php",
+				method: "post",
+	            data: {
+	              action:"submit",
+	              payload: payload
+	            }
+			}).done(function(res){				
+				// console.log(data);
+				if(res){
+					try{
+						let data = JSON.parse(res);
+						if(data.result=="ok" && status=="DONE ADVANCED"){
+							$('#exam-student-modal-yessubmitnow').modal({backdrop: 'static', keyboard: false});
+							$('#exam-student-modal-yessubmitnow').modal('show');
+							$("#exam-student-modal-yessubmitnow").on("hidden.bs.modal", function () {
+							  setTimeout(function(){exam.verifyExamInfo(); exam.initialize(); },1000); 
+							});
+						}
+						else if(data.result=="not ok"){
+							$('#exam-student-servererror').modal('show');
+						}
+					}
+					catch(e){
+						$('#exam-student-servererror').modal('show');
+					}
+				}
+			});
 		}
 
 		//Getter and Setter
@@ -224,6 +388,11 @@
 		getUserID(){
 			//this must be updated. Make sure to use >> this.state << user data
 			return 2;
+		}
+		getExamUserID(){
+			//this must be updated. Make sure to use >> this.state << user data
+			//refer exam_user table
+			return 1;
 		}
 
 		//Utilities
