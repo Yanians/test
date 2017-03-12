@@ -81,7 +81,7 @@
               <div class="box-header with-border">
                 <h3 class="box-title subject-chosen">Subject Chosen</h3>
                 <h5 class="box-title pull-right">
-                  Items you answered: 0
+                  Items you answered: <span id="quizTotalItemsAnswered">0</span>
                 </h5>
                 </div>
                 <div class="box-body">
@@ -104,45 +104,45 @@
                   <table class="table" id="quiz-table">
                     <tr>
                       <th style="width:150px">Choose Answer</th>
-                      <th style="padding-left:30px">Question: <span id="quiz-question-sequence">001</span><span id="quiz-question-quizid">-1</span></th>
+                      <th style="padding-left:30px">Question: <span id="quiz-question-sequence">001</span></th>
                     </tr>
                     <tr>
                       <td>
                         <div class="form-group">
                           <div class="row">
                             <div class="col-sm-3">
-                              <label class="">
-                                <div style="position: absolute;margin-left: 6.5px;margin-top:1px;">A</div>
-                                <div id="quiz_select_a" class="iradio_flat-green" aria-checked="false" aria-disabled="false" style="position: relative;">
-                                  <input type="radio" name="r3" class="flat-red" style="position: absolute; opacity: 0;">
-                                  <ins  class="iCheck-helper" style="position: absolute; top: 0%; left: 0%; display: block; width: 100%; height: 100%; margin: 0px; padding: 0px; background: rgb(255, 255, 255); border: 0px; opacity: 0;"></ins>
+                              <label id="quiz_handle_a">
+                                <div id="quiz_select1_a" style="position: absolute;margin-left: 6.5px;margin-top:1px;">A</div>
+                                <div id="quiz_select2_a" class="iradio_flat-green" aria-checked="false" aria-disabled="false" style="position: relative;">
+                                  <input id="quiz_radio_a" type="radio" name="r3" class="flat-red" style="position: absolute; opacity: 0;">
+                                  <ins id="quiz_select_a" class="iCheck-helper" style="position: absolute; top: 0%; left: 0%; display: block; width: 100%; height: 100%; margin: 0px; padding: 0px; background: rgb(255, 255, 255); border: 0px; opacity: 0;"></ins>
                                 </div>
                               </label>                              
                             </div>
                             <div class="col-sm-3">
-                              <label class="">
+                              <label id="quiz_handle_b">
                                 <div style="position: absolute;margin-left: 6.5px;margin-top:1px;">B</div>
-                                <div id="quiz_select_b" class="iradio_flat-green" aria-checked="false" aria-disabled="false" style="position: relative;">
-                                  <input type="radio" name="r3" class="flat-red" style="position: absolute; opacity: 0;">
-                                  <ins class="iCheck-helper" style="position: absolute; top: 0%; left: 0%; display: block; width: 100%; height: 100%; margin: 0px; padding: 0px; background: rgb(255, 255, 255); border: 0px; opacity: 0;"></ins>
+                                <div class="iradio_flat-green" aria-checked="false" aria-disabled="false" style="position: relative;">
+                                  <input id="quiz_radio_b" type="radio" name="r3" class="flat-red" style="position: absolute; opacity: 100;">
+                                  <ins id="quiz_select_b" class="iCheck-helper" style="position: absolute; top: 0%; left: 0%; display: block; width: 100%; height: 100%; margin: 0px; padding: 0px; background: rgb(255, 255, 255); border: 0px; opacity: 0;"></ins>
                                 </div>
                               </label>   
                             </div>
                             <div class="col-sm-3">
-                              <label class="">
+                              <label id="quiz_handle_c">
                                 <div style="position: absolute;margin-left: 6.5px;margin-top:1px;">C</div>
-                                <div id="quiz_select_c" class="iradio_flat-green" aria-checked="false" aria-disabled="false" style="position: relative;">
-                                  <input type="radio" name="r3" class="flat-red" style="position: absolute; opacity: 0;">
-                                  <ins class="iCheck-helper" style="position: absolute; top: 0%; left: 0%; display: block; width: 100%; height: 100%; margin: 0px; padding: 0px; background: rgb(255, 255, 255); border: 0px; opacity: 0;"></ins>
+                                <div class="iradio_flat-green" aria-checked="false" aria-disabled="false" style="position: relative;">
+                                  <input id="quiz_radio_c" type="radio" name="r3" class="flat-red" style="position: absolute; opacity: 0;">
+                                  <ins id="quiz_select_c" class="iCheck-helper" style="position: absolute; top: 0%; left: 0%; display: block; width: 100%; height: 100%; margin: 0px; padding: 0px; background: rgb(255, 255, 255); border: 0px; opacity: 0;"></ins>
                                 </div>
                               </label>   
                             </div>
                             <div class="col-sm-3">
-                              <label class="">
+                              <label id="quiz_handle_d">
                                 <div style="position: absolute;margin-left: 6.5px;margin-top:1px;">D</div>
-                                <div id="quiz_select_d" class="iradio_flat-green" aria-checked="false" aria-disabled="false" style="position: relative;">
-                                  <input type="radio" name="r3" class="flat-red" style="position: absolute; opacity: 0;">
-                                  <ins class="iCheck-helper" style="position: absolute; top: 0%; left: 0%; display: block; width: 100%; height: 100%; margin: 0px; padding: 0px; background: rgb(255, 255, 255); border: 0px; opacity: 0;"></ins>
+                                <div class="iradio_flat-green" aria-checked="false" aria-disabled="false" style="position: relative;">
+                                  <input id="quiz_radio_d" type="radio" name="r3" class="flat-red" style="position: absolute; opacity: 0;">
+                                  <ins id="quiz_select_d" class="iCheck-helper" style="position: absolute; top: 0%; left: 0%; display: block; width: 100%; height: 100%; margin: 0px; padding: 0px; background: rgb(255, 255, 255); border: 0px; opacity: 0;"></ins>
                                 </div>
                               </label>   
                             </div>
@@ -172,6 +172,13 @@
                             <td style="padding-left:5px" id="quiz-choice_d">The duration of the offer is not in excess of 3 months.</td>
                           </tr>
                         </table>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td colspan="2">
+                        <span id="chosen_intromsg">Please choose a letter now</span>&nbsp;
+                        <span id="chosen_letter"></span>.&nbsp;&nbsp;
+                        <span id="chosen_details"></span>                        
                       </td>
                     </tr>
                   </table>
@@ -436,7 +443,7 @@
               payload: payload
             }
           }).done(function(res){            
-            // console.log(res);
+            // console.log("fetch quiz>>>",JSON.parse(res));
             data = JSON.parse(res);
             util.data.STUDENT_SUBJECTS_AND_TOPICS_QUIZ = data;
             // console.log(data);
@@ -444,7 +451,7 @@
               util.showQuiz(0);
               let html = ``;
               for(let i=0;i<data.length;i++){
-                html+=`<li><a href="#" onclick="util.showQuiz(${i})">${util.formatItem(i+1)}</a></li>`;
+                html+=`<li><a href="#" id="btnQuiz${data[i].id}" onclick="util.showQuiz(${i})">${util.formatItem(i+1)}</a></li>`;
               }
               $('#quiz-nav').html(html);
             }
@@ -468,36 +475,86 @@
           // console.log(util.data.STUDENT_TOPIC_ID_CHOSEN);
           // console.log($('.chooseTopic').val());
         });
-        $('#quiz_select_a').click(function(){
-          let index =  $('#quiz-question-quizid').html();
-          console.log("you have selected A");
-          console.log(index);
+        // $('#quiz_select_a, #quiz_select1_a, #quiz_select2_a, #quiz_handle_a').click(function(){
+        //   util.checkQuizRadioChecked();
+        //   if(false){
+        //     console.log("you have selected A");
+        //     // console.log(util.getSelectedQuiz());
+        //     // let index =  $('#quiz-question-quizid').html();
+        //     // var data = JSON.parse(sessionStorage.getItem('imockapp'));
+        //     // // console.log(JSON.parse(data));
+        //     // console.log(">>>CHOSEN A",data);
 
-          //TODO's
-          //DETECT QUIZ ID
-          //SAVE QUIZ LOG TO DATABASE
-          //REFRESH THE JSON AND LABEL PAGINATION AS ANSWERED (APPLY COLOR GREEN)
+        //     //TODO's
+        //     //DETECT QUIZ ID
+        //     //SAVE QUIZ LOG TO DATABASE
+        //     //REFRESH THE JSON AND LABEL PAGINATION AS ANSWERED (APPLY COLOR GREEN)
 
-          let quizlog = {
-            "selected":{
-              "letter":"A",
-              "details":$('#quiz-choice_a').html()
-            },
-            "quiz_id":util.data.STUDENT_SUBJECTS_AND_TOPICS_QUIZ[index].id,
-            "user_id":"2",
-          };
-          util.data.STUDENT_SUBJECTS_AND_TOPICS_QUIZ[index].quizlog = quizlog;
-          console.log("Set Quiz Log",util.data.STUDENT_SUBJECTS_AND_TOPICS_QUIZ[index].quizlog);
+        //     let quizlog = {
+        //       "selected":{
+        //         "answer":"A",
+        //         "answer_details":$('#quiz-choice_a').html()
+        //       },
+        //       "quiz_id":util.getSelectedQuiz(),
+        //       "user_id":"2",
+        //     };
+        //     // console.log(quizlog);
+        //     $.ajax({
+        //       url:"app/models/quizlog.php",
+        //       method: "post",
+        //       data: {
+        //         action:"savelog",
+        //         payload: quizlog
+        //       }
+        //     }).done(function(res){
+        //       // console.log(res);
+        //       data = JSON.parse(res);
+        //       if(data.result == "ok"){
+        //         // console.log("Good!");
+        //         // console.log($('#quiz_select_b')[0]);
+        //         $('#quiz_radio_b').attr('disabled','disabled');
+        //         $('#quiz_radio_c').attr('disabled','disabled');
+        //         $('#quiz_radio_d').attr('disabled','disabled');
+        //       }
+        //       else{
+        //         console.log("Error: Invalid query while saving quiz log.");
+        //         // console.log(data);
+        //       }            
+        //     });
+
+        //     // util.data.STUDENT_SUBJECTS_AND_TOPICS_QUIZ[index].quizlog = quizlog;
+        //     // console.log("Set Quiz Log",util.data.STUDENT_SUBJECTS_AND_TOPICS_QUIZ[index].quizlog);
+        //   }
+        // });
+        $("#quiz_radio_a").on("ifChanged", function(){
+          util.saveQuizAnswer();
         });
-        $('#quiz_select_b').click(function(){
-          console.log("you have selected B");
+        $("#quiz_radio_b").on("ifChanged", function(){
+          util.saveQuizAnswer();
         });
-        $('#quiz_select_c').click(function(){
-          console.log("you have selected C");
+        $("#quiz_radio_c").on("ifChanged", function(){
+          util.saveQuizAnswer();
         });
-        $('#quiz_select_d').click(function(){
-          console.log("you have selected D");
+        $("#quiz_radio_d").on("ifChanged", function(){
+          util.saveQuizAnswer();
         });
+
+
+        // $('#quiz_select_b').click(function(){
+        //   if(!util.checkQuizRadioChecked()){
+        //     console.log("you have selected B");
+        //   }
+        // });
+        // $('#quiz_select_c').click(function(){
+        //   if(!util.checkQuizRadioChecked()){
+        //     console.log("you have selected CCC");
+        //   }
+        // });
+        // $('#quiz_select_d').click(function(){
+        //   if(!util.checkQuizRadioChecked()){
+        //     console.log("you have selected D");
+        //   }
+        // });
         $('.startquiz').click(function(){
           // console.log("Start Exam");
           let quizLog = {
@@ -554,15 +611,11 @@
       });
     }
     render_StudentSubjects();
-
     $('.quiz-sheet').hide();
-
-
-
   });
 
   class Utilities{
-    constructor(){
+    constructor(){      
       this.data = {
         STUDENT_SUBJECTS_AND_TOPICS:[],
         STUDENT_SUBJECT_INDEX:[],
@@ -570,13 +623,44 @@
         STUDENT_TOPIC_ID_CHOSEN:[],
         STUDENT_SUBJECTS_AND_TOPICS_QUIZ:[],
         STUDENT_SUBJECTS_AND_TOPICS_QUIZ_SELECTED_INDEX:-1,
+        CURRENT_QUIZ_ID: 0
       };
+      // sessionStorage.setItem('imockapp', JSON.stringify(this.data));
     }
-    showQuiz(index){
+    showQuiz(index){      
       if(index>=0){
+        this.resetQuizCheckbox();
+        this.data.CURRENT_QUIZ_ID = this.data.STUDENT_SUBJECTS_AND_TOPICS_QUIZ[index].id;
+        this.data.STUDENT_SUBJECTS_AND_TOPICS_QUIZ_SELECTED_INDEX = index;
+        // console.log(this.data.STUDENT_SUBJECTS_AND_TOPICS_QUIZ_SELECTED_INDEX);
+        $.ajax({
+          url:"app/models/quizlog.php",
+          method: "post",
+          data: {
+            action:"verifylog",
+            payload: {
+              quiz_id:this.getSelectedQuiz(),
+              user_id:this.getUserID()
+            }
+          }
+        }).done(function(res){
+          // console.log(res);
+          let data = JSON.parse(res);
+          // console.log(data.length);
+          if(data.length!=0){
+            // console.log("ALREADY ANSWERED");           
+            util.quizSelectAnswer(data[0].answer);
+          }
+          util.renderQuizLogs();
+        });
         // this.STUDENT_SUBJECTS_AND_TOPICS_QUIZ_SELECTED_INDEX = index;
-        $('#quiz-question-quizid').html(index);
-        console.log(this.data.STUDENT_SUBJECTS_AND_TOPICS_QUIZ[index]);
+        // var data = JSON.parse(sessionStorage.getItem('imockapp'));
+        // data.STUDENT_SUBJECTS_AND_TOPICS_QUIZ_SELECTED_INDEX = index;
+        // console.log(">>>>",data.STUDENT_SUBJECTS_AND_TOPICS_QUIZ_SELECTED_INDEX);
+        // sessionStorage.setItem('imockapp', JSON.stringify(this.data));
+        // console.log(">>>SHOW QUIZ",data);
+        // $('#quiz-question-quizid').html(index);
+        // console.log(this.data.STUDENT_SUBJECTS_AND_TOPICS_QUIZ[index]);
         $('#quiz-table').show();
         $('#quiz-question-sequence').html(this.formatItem(index+1));
         $('#quiz-question').html(this.data.STUDENT_SUBJECTS_AND_TOPICS_QUIZ[index].questions.question);
@@ -590,7 +674,189 @@
         $('#quiz-nav').html("NO QUESTION ASSIGNED!");        
       }
     }
+    renderQuizLogs(){
+      $.ajax({
+          url:"app/models/quizlog.php",
+          method: "post",
+          data: {
+            action:"getQuizLogs",
+            payload: {
+              quiz_id:this.getSelectedQuiz(),
+              user_id:this.getUserID()
+            }
+          }
+        }).done(function(res){
+          let data = JSON.parse(res);
+          // console.log(data);
+          data.map((log)=>{
+            // console.log(log);
+            let btnQuiz = '#btnQuiz'+log.quiz_id;
+            $(btnQuiz).addClass('bg-green');            
+          });
+          $('#quizTotalItemsAnswered').html(data.length);
+        });
+    }
+    resetQuizCheckbox(){$('#quiz_radio_a').prop('disabled',false);$('#quiz_radio_a').iCheck('uncheck'); $('#quiz_radio_b').prop('disabled',false);$('#quiz_radio_b').iCheck('uncheck'); $('#quiz_radio_c').prop('disabled',false);$('#quiz_radio_c').iCheck('uncheck'); $('#quiz_radio_d').prop('disabled',false);$('#quiz_radio_d').iCheck('uncheck'); $('#chosen_intromsg').html("Please choose a letter now"); $('#chosen_letter').html(""); $('#chosen_details').html(""); }
+    getSelectedQuiz(){return this.data.CURRENT_QUIZ_ID; }
+    //NOTE: UPDATE THIS CODE. USER ID MUST BE ASSIGNED USING A SESSION VARIABLE
+    getUserID(){ return 2;}
     formatItem(val){if(val<10)return '00'+val; else if(val<100)return '0'+val; else return val; }
+    saveQuizAnswer(){
+      // console.clear();
+      var cA = $('#quiz_radio_a').iCheck('update')[0].checked;
+      var cB = $('#quiz_radio_b').iCheck('update')[0].checked;
+      var cC = $('#quiz_radio_c').iCheck('update')[0].checked;
+      var cD = $('#quiz_radio_d').iCheck('update')[0].checked;
+      if(cA){
+        this.saveQuizLog({
+          "selected":{
+            "answer":"A",
+            "answer_details":$('#quiz-choice_a').html()
+          },
+          "quiz_id":util.getSelectedQuiz(),
+          "user_id":util.getUserID(),
+        });
+      }
+      else if(cB){
+        this.saveQuizLog({
+          "selected":{
+            "answer":"B",
+            "answer_details":$('#quiz-choice_b').html()
+          },
+          "quiz_id":util.getSelectedQuiz(),
+          "user_id":util.getUserID(),
+        });
+      }
+      else if(cC){
+        this.saveQuizLog({
+          "selected":{
+            "answer":"C",
+            "answer_details":$('#quiz-choice_c').html()
+          },
+          "quiz_id":util.getSelectedQuiz(),
+          "user_id":util.getUserID(),
+        });
+      }
+      else if(cD){
+        this.saveQuizLog({
+          "selected":{
+            "answer":"D",
+            "answer_details":$('#quiz-choice_d').html()
+          },
+          "quiz_id":util.getSelectedQuiz(),
+          "user_id":util.getUserID(),
+        });
+      }
+      // console.log(cA);
+      // console.log(cB);
+      // console.log(cC);
+      // console.log(cD);    
+    }
+    saveQuizLog(quizlog){
+      // let quizlog = {
+      //   "selected":{
+      //     "answer":"A",
+      //     "answer_details":$('#quiz-choice_a').html()
+      //   },
+      //   "quiz_id":util.getSelectedQuiz(),
+      //   "user_id":"2",
+      // };
+      // console.log(quizlog);
+      $.ajax({
+        url:"app/models/quizlog.php",
+        method: "post",
+        data: {
+          action:"savelog",
+          payload: quizlog
+        }
+      }).done(function(res){
+        // console.log(res);
+        let data = JSON.parse(res);
+        if(data.result == "ok"){
+          util.quizSelectAnswer(quizlog.selected.answer);
+          // if(quizlog.selected.answer=="A"){              
+          //     $('#quiz_radio_b').attr('disabled','disabled');
+          //     $('#quiz_radio_c').attr('disabled','disabled');
+          //     $('#quiz_radio_d').attr('disabled','disabled');
+          //     $('#chosen_intromsg').html("You choose ");
+          //     $('#chosen_letter').html("A");
+          //     $('#chosen_details').html($('#quiz-choice_a').html());
+          // }
+          // else if(quizlog.selected.answer=="B"){
+          //     $('#quiz_radio_a').attr('disabled','disabled');
+          //     $('#quiz_radio_c').attr('disabled','disabled');
+          //     $('#quiz_radio_d').attr('disabled','disabled');
+          //     $('#chosen_intromsg').html("You choose ");
+          //     $('#chosen_letter').html("B");
+          //     $('#chosen_details').html($('#quiz-choice_a').html());
+          // }
+          // else if(quizlog.selected.answer=="C"){
+          //     $('#quiz_radio_a').attr('disabled','disabled');
+          //     $('#quiz_radio_b').attr('disabled','disabled');
+          //     $('#quiz_radio_d').attr('disabled','disabled');
+          //     $('#chosen_intromsg').html("You choose ");
+          //     $('#chosen_letter').html("C");
+          //     $('#chosen_details').html($('#quiz-choice_c').html());
+          // }
+          // else if(quizlog.selected.answer=="D"){
+          //     $('#quiz_radio_a').attr('disabled','disabled');
+          //     $('#quiz_radio_b').attr('disabled','disabled');
+          //     $('#quiz_radio_c').attr('disabled','disabled');
+          //     $('#chosen_intromsg').html("You choose ");
+          //     $('#chosen_letter').html("D");
+          //     $('#chosen_details').html($('#quiz-choice_d').html());
+          // }
+        }
+        else{
+          // console.log("Error: Invalid query while saving quiz log.");
+          // console.log(data);
+            $('#chosen_intromsg').html("Error on saving answer ");
+            $('#chosen_letter').html(quizlog.selected.answer);
+            $('#chosen_details').html("Invalid query while saving quiz log.");
+        }            
+      });
+    }
+
+    quizSelectAnswer(answer){
+      let btnQuiz = '#btnQuiz'+this.getSelectedQuiz();
+      $(btnQuiz).addClass('bg-green');
+      if(answer=="A"){
+          $('#quiz_radio_a').iCheck('check');
+          $('#quiz_radio_b').attr('disabled','disabled');
+          $('#quiz_radio_c').attr('disabled','disabled');
+          $('#quiz_radio_d').attr('disabled','disabled');
+          $('#chosen_intromsg').html("You choose ");
+          $('#chosen_letter').html("A");
+          $('#chosen_details').html($('#quiz-choice_a').html());
+      }
+      else if(answer=="B"){
+          $('#quiz_radio_b').iCheck('check');
+          $('#quiz_radio_a').attr('disabled','disabled');
+          $('#quiz_radio_c').attr('disabled','disabled');
+          $('#quiz_radio_d').attr('disabled','disabled');
+          $('#chosen_intromsg').html("You choose ");
+          $('#chosen_letter').html("B");
+          $('#chosen_details').html($('#quiz-choice_a').html());
+      }
+      else if(answer=="C"){
+          $('#quiz_radio_c').iCheck('check');
+          $('#quiz_radio_a').attr('disabled','disabled');
+          $('#quiz_radio_b').attr('disabled','disabled');
+          $('#quiz_radio_d').attr('disabled','disabled');
+          $('#chosen_intromsg').html("You choose ");
+          $('#chosen_letter').html("C");
+          $('#chosen_details').html($('#quiz-choice_c').html());
+      }
+      else if(answer=="D"){
+          $('#quiz_radio_d').iCheck('check');
+          $('#quiz_radio_a').attr('disabled','disabled');
+          $('#quiz_radio_b').attr('disabled','disabled');
+          $('#quiz_radio_c').attr('disabled','disabled');
+          $('#chosen_intromsg').html("You choose ");
+          $('#chosen_letter').html("D");
+          $('#chosen_details').html($('#quiz-choice_d').html());
+      }
+    }
   }
   let util = new Utilities();
 </script>
