@@ -25,11 +25,15 @@
 		else if($_GET['page'] == "feedback"){
 			$page_url = "app/views/feedback.php";
 		}
+		else if($_GET['page'] == "guidelines"){
+			$page_url = "app/views/guidelines.php";
+		}
+		//added 
 		else if($_GET['page'] == "dashboard"){
 			$page_url = "app/views/dashboard.php";
 		}
-		else if($_GET['page'] == "guidelines"){
-			$page_url = "app/views/guidelines.php";
+		else if($_GET['page'] == "settings"){
+			$page_url = "app/views/settings.php";
 		}
 		else{
 			$page_url = "app/views/error404.php";
