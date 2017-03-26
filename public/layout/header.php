@@ -26,7 +26,8 @@
 	  <![endif]-->
 
 	  <!-- js plugins -->
-	  <script src="plugins/jQuery/jquery-2.2.3.min.js"></script>  
+	  <script src="plugins/jQuery/jquery-2.2.3.min.js"></script> 
+	  <script src="plugins/chartjs/Chart.min.js"></script> 
 	  <script src="plugins/iCheck/icheck.min.js"></script>
 	  <script src="plugins/countdown/jquery.countdownTimer.min.js"></script>
 	  <script src="dist/js/validator.min.js"></script>
@@ -34,3 +35,5 @@
 	  <script src="plugins/datatables/jquery.dataTables.min.js"></script>
 	  <script src="plugins/datatables/dataTables.bootstrap.min.js"></script>
 	  <script src="app/controllers/app.js"></script>
+
+	  

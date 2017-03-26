@@ -96,16 +96,14 @@ if($link){
 		// }
 	}
 	else{
-		// $table='exam';
-		// $sql = "select * from $table";
-		// $result = mysqli_query($link, $sql) or die("Invalid query" . mysqli_error($link));
-		// $arr = array();
-		// $count=0;
-		// while($row=mysqli_fetch_assoc($result)){
-		// 	$arr[] = $row;
-		// 	$count++;
-		// }
-		// echo json_encode($arr);
+		$table='quizlog';
+		$sql = "select * from $table";
+		$result = mysqli_query($link, $sql) or die("Invalid query" . mysqli_error($link));
+		$arr = array();
+		while($row=mysqli_fetch_assoc($result)){
+			$arr[] = $row;
+		}
+		echo json_encode($arr);
 	}		
 }
 ?>

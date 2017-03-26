@@ -15,3 +15,4 @@
 <script src="app/controllers/script.js"></script>
 <script src="dist/js/demo.js"></script>
 <script src="dist/js/plugin_init.js"></script>
+

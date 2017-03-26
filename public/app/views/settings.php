@@ -16,6 +16,7 @@
   <div class="nav-tabs-custom">
     <ul class="nav nav-tabs">              
       <li  class="active"><a href="#uploadquestions" data-toggle="tab">Upload Questions</a></li>
+      <li ><a href="#showreport" data-toggle="tab">Show Report</a></li>
 <!--       <li><a href="#takequiz" data-toggle="tab">Take Quiz</a></li>
       <li><a href="#takeexam" data-toggle="tab">Take Exam</a></li> -->
       
@@ -27,6 +28,10 @@
 
       <div class="active tab-pane" id="uploadquestions">
         <?php require_once("settings/uploadquestions.php"); ?>
+      </div>
+
+      <div class="tab-pane" id="showreport">
+        <?php require_once("settings/report/report.php"); ?>
       </div>
 
       <div class="tab-pane" id="home">        

@@ -32,6 +32,7 @@
 
 			else if(value==="dashboard")links+='<li><a href="?page=dashboard">Dashboard</a></li>';
 			else if(value==="settings")links+='<li><a href="?page=settings">Admin Settings</a></li>';
+			else if(value==="backadminsettings")links+='<li><a href="../../../../../admin-settings.php?page=settings">Back To Admin Settings</a></li>';
 		}
 		$('.imock-nav').html(links);
 	}	

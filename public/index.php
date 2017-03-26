@@ -1,3 +1,12 @@
+<!-- 
+	HOW TO READ TOPIC
+		settings.php
+		report.php
+		quiz.php
+		report-topic
+	http://localhost/test/public/admin-settings.php?page=settings
+	http://localhost/test/public/student.php?page=dashboard
+-->
 <!DOCTYPE html>
 <html>
 <head>
