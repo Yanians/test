@@ -18,7 +18,7 @@
 				$result = mysqli_query($link, $sql) or die("Invalid query" . mysqli_error($link));
 				echo "ok";
 			}
-			if($_POST['action']=="updateuser"){
+			else if($_POST['action']=="updateuser"){
 				echo "update user ok!";
 				$id = $_POST['id'];
 				$email = $_POST['email'];
@@ -31,7 +31,7 @@
 				$result = mysqli_query($link, $sql) or die("Invalid query" . mysqli_error($link));
 				echo "ok";
 			}
-			if($_POST['action']=="deleteuser"){
+			else if($_POST['action']=="deleteuser"){
 				echo "delete user ok!";
 				$id = $_POST['id'];
 				$email = $_POST['email'];
@@ -42,6 +42,15 @@
 				$sql = "delete from $table where id='$id'";
 				$result = mysqli_query($link, $sql) or die("Invalid query" . mysqli_error($link));
 				echo "ok";
+			}			
+			else if($_POST['action']=="filterstudents"){
+				$sql = "select * from $table where isadmin=0 ";
+			    $result = mysqli_query($link, $sql) or die("Invalid query" . mysqli_error($link));
+				$arr = array();
+				while($row=mysqli_fetch_assoc($result)){
+					$arr[] = $row;
+				}
+				echo json_encode($arr);
 			}
 		}
 		else{	
