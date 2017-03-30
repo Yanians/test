@@ -262,6 +262,211 @@
 </div>
 <script>
 
+  class StudentExamSummary{
+    constructor(){
+      this.state={
+        "score":0,
+        "totalSubjectTaken":0,
+        "user_exam_data":{}
+      }
+      this.data = {
+        "subject":[],
+        "exam_user" : []
+      }
+      this.loadData(()=>{
+        console.log(this.data.subject);
+        console.log(this.data.exam_user);
+        this.main();
+      });
+    }
+    loadData(callback){
+      $.ajax({url: "app/models/subject.php"})
+      .done(function(res){
+        let data = JSON.parse(res);
+        studentExamSummary.data.subject = data;
+        $.ajax({url: "app/models/exam-user.php", data:{action:"getUserExam", user_id:studentExamSummary.getUserID() } })
+        .done(function(res){
+          let data = JSON.parse(res);
+          studentExamSummary.data.exam_user = data;
+          studentExamSummary.state.user_exam_data = JSON.parse(data[0].data);
+          callback();
+        });
+      });
+    }
+    main(){
+      console.log(this.state.user_exam_data);
+      this.renderExamSummary();
+    }
+    renderExamSummary(){
+      /*
+ {
+          "subject":"Finance",
+          "result":{
+            "progressbar":"danger",
+            "width":"55",
+          },
+          "score":{
+            "badge":"red",
+            "data":"55"
+          }
+        }
+      */
+      let data = [];
+      this.data.subject.map((subject)=>{
+        let result = this.getUserExamResultPerSubject(subject);
+        let score = this.getuserExamScorePerSubject(subject);
+        data.push({
+          "subject":subject.name,
+          "result":result,
+          "score":score          
+        });
+      });
+      /*
+      let data = [
+        {
+          "subject":"Finance",
+          "result":{
+            "progressbar":"danger",
+            "width":"55",
+          },
+          "score":{
+            "badge":"red",
+            "data":"55"
+          }
+        },
+        {
+          "subject":"Law and Order",
+          "result":{
+            "progressbar":"yellow",
+            "width":"70",
+          },
+          "score":{
+            "badge":"yellow",
+            "data":"70"
+          }
+        },
+        {
+          "subject":"History",
+          "result":{
+            "progressbar":"primary",
+            "width":"30",
+          },
+          "score":{
+            "badge":"light-blue",
+            "data":"30"
+          }
+        },
+        {
+          "subject":"Criminal and Investigation",
+          "result":{
+            "progressbar":"success",
+            "width":"100",
+          },
+          "score":{
+            "badge":"green",
+            "data":"100"
+          }
+        }
+      ];
+      */
+      let html = `
+        <table class="table table-bordered">
+          <tr>
+            <th style="width: 10px">#</th>
+            <th>Subject</th>
+            <th>Result</th>
+            <th style="width: 40px">Score</th>
+          </tr>`;
+      for(let i=0;i<data.length;i++){
+        html+=`
+          <tr>
+            <td>${i+1}.</td>
+            <td>${data[i].subject}</td>
+            <td>
+              <div class="progress progress-xs">
+                <div class="progress-bar progress-bar-${data[i].result.progressbar}" style="width: ${data[i].result.width}%"></div>
+              </div>
+            </td>
+            <td><span class="badge bg-${data[i].score.badge}">${data[i].score.data}%</span></td>
+          </tr>        
+      `;
+      }
+      html+=`</table>`;
+      $('.exams').html(html);
+      $('.exams-total').html(`Total Exam Taken: ${this.getTotalSubjectTaken()}`);
+    }
+
+    getTotalSubjectTaken(){
+      let total = 0;
+      this.data.subject.map((subject)=>{
+        if(findSubjectID(subject.id)){
+          total++;
+        }
+
+        function findSubjectID(id){
+          let flag = false;
+          for(let i=0;i<studentExamSummary.state.user_exam_data.length;i++){
+            let ued = studentExamSummary.state.user_exam_data[0];            
+            if(ued.subject_id==id){
+              flag=true;
+              break;              
+            }
+          }
+          return flag;
+        }
+      });
+      return total;
+    }
+
+    getUserExamResultPerSubject(subject){
+      let result = {};
+      let score = 0;
+      this.state.user_exam_data.map((ued)=>{
+        if(ued.subject_id==subject.id && ued.selected==ued.answer){
+          score++;
+        }
+      });      
+      let average = (score/parseInt(subject.items))*100;
+      this.state.score = Math.round(average);
+      if(average<subject.passingrate){
+        result = {
+              "progressbar":"danger",
+              "width":"55",
+            };        
+      }
+      else{
+        result ={
+            "progressbar":"success",
+            "width":"100",
+          };
+      }
+
+      return result;
+    }
+    getuserExamScorePerSubject(subject){
+      let score = {};
+      if(this.state.score<subject.passingrate){
+        score = {
+            "badge":"red",
+            "data":this.state.score
+          };
+      }
+      else{
+        score = {
+            "badge":"green",
+            "data":this.state.score
+          };
+      }
+      return score;
+    }
+
+    getUserID(){
+      return 2;
+    }
+  }
+  let studentExamSummary = new StudentExamSummary();
+
+
   $(function(){
     $('input[type=radio]').iCheck({
       checkboxClass: 'icheckbox_square-green',
@@ -373,7 +578,7 @@
       $('.exams-total').html(`Total Exam Taken: 5`);
     }
     render_StudentNews();
-    render_StudentExams();
+    // render_StudentExams();
 
     //Take Exam Controllers
     function render_StudentSubjects(){      
