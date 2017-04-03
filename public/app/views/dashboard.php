@@ -39,7 +39,22 @@
             </h3>
             <div class="box">
               <div class="box-body exams"></div>
-              <div class="box-footer clearfix pull-right exams-total"></div>
+              <div class="pull-right exams-total"></div>
+              <hr/>
+              <div style="margin-left:50px;margin-right:50px">
+                <h3>Result</h3>
+                <table class="table table-striped">
+                  <tr>
+                    <td style="color:#ddd;width:180px;">General Average</td>
+                    <td id="general-average">0.00</td>
+                  </tr>
+                  <tr>
+                    <td style="color:#ddd;width:180px;">Remarks</td>
+                    <td id="general-remarks">FAILED</td>
+                  </tr>
+                </table>
+              </div>
+              <div class="box-footer clearfix"></div>
           </div>
           <!-- /.box -->
           </div>       
@@ -267,7 +282,8 @@
       this.state={
         "score":0,
         "totalSubjectTaken":0,
-        "user_exam_data":{}
+        "user_exam_data":{},
+        "exam_result":[]
       }
       this.data = {
         "subject":[],
@@ -299,7 +315,7 @@
     }
     renderExamSummary(){
       /*
- {
+      {
           "subject":"Finance",
           "result":{
             "progressbar":"danger",
@@ -316,6 +332,7 @@
         let result = this.getUserExamResultPerSubject(subject);
         let score = this.getuserExamScorePerSubject(subject);
         data.push({
+          "subject_id":subject.id,
           "subject":subject.name,
           "result":result,
           "score":score          
@@ -375,8 +392,10 @@
             <th style="width: 10px">#</th>
             <th>Subject</th>
             <th>Result</th>
-            <th style="width: 40px">Score</th>
+            <th style="width: 40px">Score</th>          
           </tr>`;
+
+
       for(let i=0;i<data.length;i++){
         html+=`
           <tr>
@@ -394,6 +413,62 @@
       html+=`</table>`;
       $('.exams').html(html);
       $('.exams-total').html(`Total Exam Taken: ${this.getTotalSubjectTaken()}`);
+
+      let sumOfRatings = 0;
+      for(let i=0;i<data.length;i++){
+        sumOfRatings += data[i].score.data;
+      }
+      let genAverage = parseFloat(sumOfRatings)/parseFloat(data.length);
+      genAverage = parseFloat(genAverage).toFixed(2);
+      $('#general-average').html(genAverage);
+
+
+      console.log(data);
+      let remarks = `FAILED`;
+      if(this.isAbove65(data) && genAverage>=75){
+        remarks = `PASSED`;
+      }
+      else if(genAverage>=75 && this.isMajorityAbove65(data)){
+        remarks = `CONDITIONAL`;
+      }
+      else if(genAverage<75){
+        remarks = `FAILED`;
+      }
+
+      remarks = `CONDITIONAL`;
+      if(remarks=="CONDITIONAL"){
+        remarks+=`
+          <br/>
+          <a href="student-retake.php"class="btn btn-xs btn-warning btn-fill btn-block">Retake Now</a>          
+        `;
+        localStorage.setItem('retakeexamdata',JSON.stringify(data));
+      }
+      $('#general-remarks').html(remarks);
+
+    }
+
+    isAbove65(data){
+      let result = true;
+      for(let i=0;i<data.length;i++){
+        if(data[i].score.data<65){
+          result=false;
+          break;
+        }
+      }
+      return result;
+    }
+
+    isMajorityAbove65(data){
+      let result = false;
+      let margin = data.length/2;
+      let count = 0;
+      for(let i=0;i<data.length;i++){
+        if(data[i].score.data>=65){
+          count++;
+        }
+      }
+      if(count>=margin)result=true;
+      return result;
     }
 
     getTotalSubjectTaken(){

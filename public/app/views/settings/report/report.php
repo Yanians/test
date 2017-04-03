@@ -53,7 +53,7 @@
 									<td id="report-default-name">STUDENT, STUDENT</td>
 								</tr>
 							</table>
-
+							<div id="report-subject-controls"></div>
 						</div>
 					</div>
 				</div>
@@ -122,6 +122,48 @@
 		main(){
 			this.populateUserTable();
 			this.initializePieChart();
+			this.reportSubjectControls();
+		}
+		reportSubjectControls(){
+			let html = `
+				<table class="table table-striped">
+					<thead>
+						<tr>
+							<th>Subjects</th>
+							<th>Status</th>
+						</tr>
+					</thead>
+					<tbody id="report-subject-controls-tbody">					
+					</tbody>				
+				</table>
+				<div>
+					<button class="btn btn-danger btn-fill btn-block">Save</button>
+				</div>
+			`;
+			$('#report-subject-controls').html(html);
+			this.reportSubjectControlsBody();
+		}
+		reportSubjectControlsBody(){
+			// console.log(this.data.subject);
+			let html = ``;
+			this.data.subject.map((subject)=>{
+				html += `
+					<tr>
+						<td>${subject.name}</td>
+						<td>
+							<select>
+								<option>NO ACCESS</option>
+								<option>DEFAULT</option>
+								<option>ONGOING</option>
+								<option>INTERRUPTED</option>
+								<option>DONE TIMESUP</option>
+								<option>DONE ADVANCED</option>
+							</select>
+						</td>
+					</tr>
+				`;
+			});			
+			$('#report-subject-controls-tbody').html(html);
 		}
 		populateUserTable(){
 			let html = ``;
@@ -153,10 +195,6 @@
 					<tr>
 						<td align="right" style="color:#d2d6de">NAME</td>
 						<td>${user.lastname.toUpperCase()}, ${user.firstname.toUpperCase()}</td>
-					</tr>
-					<tr>
-						<td align="right" style="color:#d2d6de">RESULT</td>
-						<td class="bg-red text-white">FAILED</td>
 					</tr>
 				</table>
 			`;
